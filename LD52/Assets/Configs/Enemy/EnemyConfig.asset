@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6aae46ea68fadb479f5aa5a1859025f, type: 3}
   m_Name: EnemyConfig
   m_EditorClassIdentifier: 
-  visionRange: 16
-  attackRange: 8
-  movementSpeed: 5
-  turnRate: 5
-  moveAngle: 30
-  aggroTimeout: 1
+  VisionRange: 16
+  AttackRange: 8
+  MovementSpeed: 5
+  TurnRate: 15
+  MoveAngle: 15
+  AggroTimeout: 2
+  RateOfFire: 10
