@@ -9,6 +9,10 @@ public class EntityHitReceiver : MonoBehaviour, ParentCollider
     [SerializeField]
     private EntityHealth entityHealth;
 
+    [SerializeField]
+    private Transform enemyAimTarget;
+    public Transform EnemyAimTarget { get { return enemyAimTarget; } }
+
     public void Kill()
     {
         //Destroy(gameObject);

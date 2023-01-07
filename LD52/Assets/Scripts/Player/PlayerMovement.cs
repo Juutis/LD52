@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    private void Awake()
+    {
+        main = this;
+    }
+    public static PlayerMovement main;
+
     [SerializeField]
     private GameConfigScriptableObject gameConfig;
     [SerializeField]

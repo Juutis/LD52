@@ -12,8 +12,11 @@ public class EnemyShooter : MonoBehaviour, GameRhythmSubscriber
     private EnemyMovement enemyMovement;
     private int notesBetweenShots = 8;
 
+    private EntityHitReceiver playerHitReceiver;
+
     private void Start()
     {
+        playerHitReceiver = PlayerMovement.main.GetComponent<EntityHitReceiver>();
         GameRhythm.main.Subscribe(this);
     }
 
@@ -26,7 +29,7 @@ public class EnemyShooter : MonoBehaviour, GameRhythmSubscriber
     private void Shoot()
     {
         goblinAnimator.Shoot();
-        ProjectileLauncher.main.Launch(enemyMovement.PlayerPosition, shootPos.position);
+        ProjectileLauncher.main.Launch(playerHitReceiver.EnemyAimTarget.position, shootPos.position);
     }
 
     public void RhythmUpdate(int note)
