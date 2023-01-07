@@ -183,7 +183,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 39
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -375,6 +375,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8303930144187253731, guid: 44f6edfb824104b4492b4b04dc6dab05,
     type: 3}
   m_PrefabInstance: {fileID: 2409450421894750837}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1204178208 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8327077016633429957, guid: be40b06b832f05c4f81cf3478db4ddd3,
+    type: 3}
+  m_PrefabInstance: {fileID: 5253266628797550069}
   m_PrefabAsset: {fileID: 0}
 --- !u!82 &1361876819 stripped
 AudioSource:
@@ -593,6 +599,16 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5207778001660166681, guid: 44f6edfb824104b4492b4b04dc6dab05,
+        type: 3}
+      propertyPath: m_Center.y
+      value: -0.24
+      objectReference: {fileID: 0}
+    - target: {fileID: 7354488430479190390, guid: 44f6edfb824104b4492b4b04dc6dab05,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.694
+      objectReference: {fileID: 0}
     - target: {fileID: 8002698735542189116, guid: 44f6edfb824104b4492b4b04dc6dab05,
         type: 3}
       propertyPath: m_Name
@@ -661,6 +677,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 779532966, guid: be40b06b832f05c4f81cf3478db4ddd3, type: 3}
+      propertyPath: shootPos
+      value: 
+      objectReference: {fileID: 1204178208}
     - target: {fileID: 7722447051069690624, guid: be40b06b832f05c4f81cf3478db4ddd3,
         type: 3}
       propertyPath: player
@@ -671,6 +691,11 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 960529520}
+    - target: {fileID: 7722447051069690625, guid: be40b06b832f05c4f81cf3478db4ddd3,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7722447051069690626, guid: be40b06b832f05c4f81cf3478db4ddd3,
         type: 3}
       propertyPath: m_RootOrder

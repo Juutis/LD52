@@ -8,6 +8,7 @@ public class EnemyMovement : MonoBehaviour
 {
     [SerializeField]
     private Transform player;
+    private EntityHitReceiver playerHitReceiver;
 
     [SerializeField]
     private EnemyConfigScriptableObject config;
@@ -19,11 +20,12 @@ public class EnemyMovement : MonoBehaviour
     private float attackDistanceCoef = 0.8f;
     private bool isInAttackRange = false;
     public bool IsInAttackRange { get { return isInAttackRange; } }
-    public Vector3 PlayerPosition { get { return player.position; } }
+    public Vector3 PlayerPosition { get { return playerHitReceiver.transform.position; } }
 
     // Start is called before the first frame update
     void Start()
     {
+        playerHitReceiver = player.GetComponentInChildren<EntityHitReceiver>();
         aggroTimeoutStarted = -config.AggroTimeout;
         agent = GetComponent<NavMeshAgent>();
         agent.speed = config.MovementSpeed;

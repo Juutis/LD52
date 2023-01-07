@@ -7,10 +7,13 @@ public class EnemyShooter : MonoBehaviour, GameRhythmSubscriber
     [SerializeField]
     private GoblinAnimator goblinAnimator;
     [SerializeField]
+    private Transform shootPos;
+    [SerializeField]
     private EnemyMovement enemyMovement;
-    private int notesBetweenShots = 4;
+    private int notesBetweenShots = 8;
 
-    private void Start() {
+    private void Start()
+    {
         GameRhythm.main.Subscribe(this);
     }
 
@@ -23,7 +26,7 @@ public class EnemyShooter : MonoBehaviour, GameRhythmSubscriber
     private void Shoot()
     {
         goblinAnimator.Shoot();
-        ProjectileLauncher.main.Launch(transform.position, enemyMovement.PlayerPosition);
+        ProjectileLauncher.main.Launch(enemyMovement.PlayerPosition, shootPos.position);
     }
 
     public void RhythmUpdate(int note)

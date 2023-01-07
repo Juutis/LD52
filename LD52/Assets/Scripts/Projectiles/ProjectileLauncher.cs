@@ -10,16 +10,6 @@ public class ProjectileLauncher : MonoBehaviour
         main = this;
     }
 
-
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            Debug.Log("Launching");
-            Launch(Vector3.zero, transform.position);
-        }
-    }
-
     public Projectile projectilePrefab;
 
     public void Launch(Vector3 targetPosition, Vector3 launchPosition)

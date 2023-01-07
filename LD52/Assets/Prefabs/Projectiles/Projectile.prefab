@@ -82,6 +82,7 @@ MonoBehaviour:
   childCollider: {fileID: 2498963083584560605}
   rb: {fileID: 4360021732629778857}
   speed: 5
+  damage: 2
 --- !u!54 &4360021732629778857
 Rigidbody:
   m_ObjectHideFlags: 0

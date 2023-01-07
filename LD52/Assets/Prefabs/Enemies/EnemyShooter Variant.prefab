@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5950020156866349544
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8327077016633429957}
+  m_Layer: 0
+  m_Name: Shootpos
+  m_TagString: Untagged
+  m_Icon: {fileID: 7148428337604731935, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8327077016633429957
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5950020156866349544}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 4, y: 4, z: 4}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6479336938138833006}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &5253266627742717596
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11,7 +42,7 @@ PrefabInstance:
     - target: {fileID: 2579716543470454174, guid: 4f289afc770f86443a895c77af6f63dd,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2579716543470454174, guid: 4f289afc770f86443a895c77af6f63dd,
         type: 3}
@@ -76,7 +107,7 @@ PrefabInstance:
     - target: {fileID: 2579716543470454242, guid: 4f289afc770f86443a895c77af6f63dd,
         type: 3}
       propertyPath: m_Name
-      value: EnemyShooter
+      value: EnemyShooter Variant
       objectReference: {fileID: 0}
     - target: {fileID: 2579716544177512385, guid: 4f289afc770f86443a895c77af6f63dd,
         type: 3}
@@ -105,7 +136,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 1228463141635081970, guid: 4f289afc770f86443a895c77af6f63dd,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8327077016633429957}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2579716543470454242, guid: 4f289afc770f86443a895c77af6f63dd,
         type: 3}
@@ -124,6 +159,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bee4a234683adfa448122049c7337d4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &6479336938138833006 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1228463141635081970, guid: 4f289afc770f86443a895c77af6f63dd,
+    type: 3}
+  m_PrefabInstance: {fileID: 5253266627742717596}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &7722447051069690624 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2579716543470454172, guid: 4f289afc770f86443a895c77af6f63dd,
@@ -155,4 +196,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goblinAnimator: {fileID: 5194974701905489949}
+  shootPos: {fileID: 0}
   enemyMovement: {fileID: 7722447051069690624}
