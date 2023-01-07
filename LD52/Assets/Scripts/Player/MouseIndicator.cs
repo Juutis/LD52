@@ -16,12 +16,10 @@ public class MouseIndicator : MonoBehaviour
     void Update()
     {
         Ray mouse = Camera.main.ScreenPointToRay(Input.mousePosition);
-        Debug.Log(mouse.direction);
         Physics.Raycast(mouse, out RaycastHit hitInfo, 1000, LayerMask.GetMask("Ground"));
 
         if (hitInfo.collider != null)
         {
-            Debug.Log(hitInfo.point);
             transform.position = hitInfo.point;
         }
     }
