@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
@@ -31,6 +32,8 @@ public class MouseIndicator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        var spell = CastableSpellManager.main.GetPreparedSpells().FirstOrDefault();
+
         Ray mouse = Camera.main.ScreenPointToRay(Input.mousePosition);
         Physics.Raycast(mouse, out RaycastHit hitInfo, 1000, LayerMask.GetMask("Ground"));
         var mouseDir = PlayerToMouseDir();
@@ -39,22 +42,41 @@ public class MouseIndicator : MonoBehaviour
         {
             mousePos = hitInfo.point;
 
-            if (!blinkMode)
+            if (spell == null)
             {
                 transform.position = new Vector3(mousePos.x, 0.1f, mousePos.z);
+                meshRenderer.sharedMaterial = NormalCursor;
             }
             else
             {
-                Physics.Raycast(player.position, mouseDir, out RaycastHit blinkHitInfo, PlayerToMouse2D().magnitude, LayerMask.GetMask("Obstacles"));
+                Physics.Raycast(player.position, mouseDir, out RaycastHit blinkHitInfo, spell.GetCastRange(), LayerMask.GetMask("Obstacles"));
 
                 if (blinkHitInfo.collider != null)
                 {
                     Vector3 cursorPos = blinkHitInfo.point - mouseDir;
-                    transform.position = new Vector3(cursorPos.x, 0.1f, cursorPos.z);
+                    cursorPos = new Vector3(cursorPos.x, 0.1f, cursorPos.z);
+                    Vector2 cursorDist = Vector.Substract(blinkHitInfo.point, player.position);
+
+                    if (cursorDist.magnitude > spell.GetCastRange())
+                    {
+                        cursorPos = Vector.SetY(Vector.V2to3(cursorDist.normalized * spell.GetCastRange()) + player.position, 0.1f);
+                    }
+
+                    transform.position = cursorPos;
+                    meshRenderer.sharedMaterial = spell.GetMouseMaterial();
                 }
                 else
                 {
-                    transform.position = new Vector3(mousePos.x, 0.1f, mousePos.z);
+                    Vector3 cursorPos = new Vector3(mousePos.x, 0.1f, mousePos.z);
+                    var cursorDist = Vector.Substract(cursorPos, player.position);
+
+                    if (cursorDist.magnitude > spell.GetCastRange())
+                    {
+                        cursorPos = Vector.SetY(Vector.V2to3(cursorDist.normalized * spell.GetCastRange()) + player.position, 0.1f);
+                    }
+
+                    transform.position = cursorPos;
+                    meshRenderer.sharedMaterial = spell.GetMouseMaterial();
                 }
             }
         }
@@ -67,16 +89,16 @@ public class MouseIndicator : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (Input.GetMouseButton(0))
-        {
-            blinkMode = true;
-            meshRenderer.sharedMaterial = BlinkCursor;
-        }
-        else
-        {
-            blinkMode = false;
-            meshRenderer.sharedMaterial = NormalCursor;
-        }
+        //if (Input.GetMouseButton(0))
+        //{
+        //    blinkMode = true;
+        //    meshRenderer.sharedMaterial = BlinkCursor;
+        //}
+        //else
+        //{
+        //    blinkMode = false;
+        //    meshRenderer.sharedMaterial = NormalCursor;
+        //}
     }
 
     private Vector2 PlayerToMouse2D()

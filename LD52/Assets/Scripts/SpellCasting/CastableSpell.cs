@@ -13,9 +13,15 @@ public class CastableSpell : MonoBehaviour
     [SerializeField]
     private float cooldownLengthMs = 1f;
     [SerializeField]
+    private float castRange = 10f;
+    [SerializeField]
     private KeyCode hotKey = KeyCode.Space;
     [SerializeField]
     private SpellCastType castType = SpellCastType.NeedsPreparation; // onkeydown
+    [SerializeField]
+    private SpellTargeting spellTargeting;
+    [SerializeField]
+    private Material mouseIndicatorMaterial;
 
     public SpellType Type { get { return spellType; } }
     public Sprite Icon { get { return icon; } }
@@ -83,6 +89,16 @@ public class CastableSpell : MonoBehaviour
         Debug.Log($"[CastableSpell]: Perform '{Type}' effect");
     }
 
+    public Material GetMouseMaterial()
+    {
+        return mouseIndicatorMaterial;
+    }
+
+    public float GetCastRange()
+    {
+        return castRange;
+    }
+
     protected virtual void Update()
     {
         if (IsOnCooldown)
@@ -116,4 +132,11 @@ public enum SpellCastType
 {
     NeedsPreparation,
     InstantCast
+}
+
+public enum SpellTargeting
+{
+    MouseTarget,
+    RaycastTarget,
+    SelfTarget
 }

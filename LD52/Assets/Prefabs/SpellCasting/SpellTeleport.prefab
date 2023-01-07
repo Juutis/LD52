@@ -47,5 +47,9 @@ MonoBehaviour:
   spellType: 1
   icon: {fileID: 21300000, guid: 07d82e348678cf845ac491f7de198904, type: 3}
   cooldownLengthMs: 2
-  hotKey: 113
-  castType: 1
+  castRange: 15
+  hotKey: 323
+  castType: 0
+  spellTargeting: 1
+  mouseIndicatorMaterial: {fileID: 2100000, guid: d61dfb25f5566b448a9284aa3485ad15,
+    type: 2}

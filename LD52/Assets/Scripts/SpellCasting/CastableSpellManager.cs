@@ -11,6 +11,13 @@ public class CastableSpellManager : MonoBehaviour
     private List<CastableSpell> startingSpells;
     private List<CastableSpell> usableSpells = new List<CastableSpell>();
 
+    public static CastableSpellManager main;
+    
+    private void Awake()
+    {
+        main = this;
+    }
+
     private void Start()
     {
         foreach (CastableSpell spell in startingSpells)
@@ -33,6 +40,11 @@ public class CastableSpellManager : MonoBehaviour
             return;
         }
         MakeSpellUsable(spell);
+    }
+
+    public IEnumerable<CastableSpell> GetPreparedSpells()
+    {
+        return usableSpells.Where(x => x.IsPrepared);
     }
 
     private void MakeSpellUsable(CastableSpell spellPrefab)
