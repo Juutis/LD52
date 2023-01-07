@@ -61,3 +61,6 @@ crashlytics-build.properties
 **/.vscode/
 
 **/Archimatix/**
+
+**/Assets/TextMesh\ Pro/
+**/Assets/TextMesh\ Pro.meta
