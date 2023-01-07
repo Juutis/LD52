@@ -15,6 +15,9 @@ public class EnemyMovement : MonoBehaviour
     private NavMeshAgent agent;
     private float aggroTimeoutStarted;
 
+    private float raycastWidth = 1f;
+    private float attackDistanceCoef = 0.8f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,32 +36,59 @@ public class EnemyMovement : MonoBehaviour
     private void FixedUpdate()
     {
         float playerDistance = EnemyToPlayer2D().magnitude;
-        if (playerDistance < config.VisionRange || Time.time - aggroTimeoutStarted < config.AggroTimeout)
+
+        // if player is within vision range or enemy is still aggroed
+        if (playerDistance <= config.VisionRange || Time.time - aggroTimeoutStarted < config.AggroTimeout)
         {
-            var targetRotation = Quaternion.LookRotation(EnemyToPlayerDir(), transform.up);
-            transform.localRotation = Quaternion.RotateTowards(transform.localRotation, targetRotation, config.TurnRate);
+            bool obstacleHitRight = Physics.Raycast(transform.position, GetPlayerRaycastDir(transform.right), playerDistance, LayerMask.GetMask("Obstacles"));
+            bool obstacleHitLeft = Physics.Raycast(transform.position, GetPlayerRaycastDir(-transform.right), playerDistance, LayerMask.GetMask("Obstacles"));
 
-            float angle = Vector3.Angle(EnemyToPlayerDir(), transform.forward);
-            if (angle < config.MoveAngle && playerDistance > 0.9f * config.AttackRange)
+            // if vision wasn't obstructed by obstacles
+            if (!obstacleHitRight || !obstacleHitLeft)
             {
-                agent.SetDestination(player.position);
-            }
+                // rotate towards player
+                var targetRotation = Quaternion.LookRotation(EnemyToPlayerDir(), transform.up);
+                transform.localRotation = Quaternion.RotateTowards(transform.localRotation, targetRotation, config.TurnRate);
 
-            if (playerDistance < config.VisionRange)
-            {
-                aggroTimeoutStarted = Time.time;
+                float angle = Vector3.Angle(EnemyToPlayerDir(), transform.forward);
+                if (angle < config.MoveAngle && playerDistance > attackDistanceCoef * config.AttackRange)
+                {
+                    agent.isStopped = false;
+                    agent.SetDestination(player.position);
+                }
+                else if (playerDistance <= attackDistanceCoef * config.AttackRange)
+                {
+                    agent.isStopped = true;
+                }
+
+                if (playerDistance < config.VisionRange)
+                {
+                    aggroTimeoutStarted = Time.time;
+                }
             }
         }
     }
 
+    private Vector3 GetPlayerRaycastDir(Vector3 offset)
+    {
+        var playerPos2 = new Vector2(player.position.x, player.position.z);
+        var ownPos2 = new Vector2(transform.position.x, transform.position.z);
+        var offset2 = new Vector2(offset.x, offset.z) * raycastWidth;
+        var result2 = playerPos2 + offset2 - ownPos2;
+
+        return new Vector3(result2.x, 0.5f, result2.y);
+    }
+
     private Vector2 EnemyToPlayer2D()
     {
-        return new Vector2(player.position.x, player.position.z) - new Vector2(transform.position.x, transform.position.z);
+        var playerPos2 = new Vector2(player.position.x, player.position.z);
+        var ownPos2 = new Vector2(transform.position.x, transform.position.z);
+        return playerPos2 - ownPos2;
     }
 
     private Vector3 EnemyToPlayerDir()
     {
         var v2Dir = EnemyToPlayer2D().normalized;
-        return new(v2Dir.x, 0, v2Dir.y); 
+        return new(v2Dir.x, 0.5f, v2Dir.y);
     }
 }

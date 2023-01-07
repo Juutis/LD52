@@ -6,4 +6,5 @@ using UnityEngine;
 public class GameConfigScriptableObject : ScriptableObject
 {
     public float EnemyFireResolution;
+    public float PlayerMovementSpeed;
 }
