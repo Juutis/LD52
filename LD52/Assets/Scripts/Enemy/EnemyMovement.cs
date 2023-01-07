@@ -18,10 +18,10 @@ public class EnemyMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        aggroTimeoutStarted = -config.aggroTimeout;
+        aggroTimeoutStarted = -config.AggroTimeout;
         agent = GetComponent<NavMeshAgent>();
-        agent.speed = config.movementSpeed;
-        agent.angularSpeed = config.turnRate;
+        agent.speed = config.MovementSpeed;
+        agent.angularSpeed = config.TurnRate;
     }
 
     // Update is called once per frame
@@ -33,18 +33,18 @@ public class EnemyMovement : MonoBehaviour
     private void FixedUpdate()
     {
         float playerDistance = EnemyToPlayer2D().magnitude;
-        if (playerDistance < config.visionRange || Time.time - aggroTimeoutStarted < config.aggroTimeout)
+        if (playerDistance < config.VisionRange || Time.time - aggroTimeoutStarted < config.AggroTimeout)
         {
             var targetRotation = Quaternion.LookRotation(EnemyToPlayerDir(), transform.up);
-            transform.localRotation = Quaternion.RotateTowards(transform.localRotation, targetRotation, config.turnRate);
+            transform.localRotation = Quaternion.RotateTowards(transform.localRotation, targetRotation, config.TurnRate);
 
             float angle = Vector3.Angle(EnemyToPlayerDir(), transform.forward);
-            if (angle < config.moveAngle && playerDistance > 0.9f * config.attackRange)
+            if (angle < config.MoveAngle && playerDistance > 0.9f * config.AttackRange)
             {
                 agent.SetDestination(player.position);
             }
 
-            if (playerDistance < config.visionRange)
+            if (playerDistance < config.VisionRange)
             {
                 aggroTimeoutStarted = Time.time;
             }

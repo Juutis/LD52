@@ -29,13 +29,13 @@ public class EnemyDebug : MonoBehaviour
     void Update()
     {
         var dir = EnemyToPlayerDir();
-        float visionWithoutAttack = config.visionRange - config.attackRange;
+        float visionWithoutAttack = config.VisionRange - config.AttackRange;
 
         shootRange.SetPosition(0, transform.position);
-        shootRange.SetPosition(1, transform.position + dir * config.attackRange);
-        visionRange.SetPosition(0, transform.position + dir * config.attackRange);
-        visionRange.SetPosition(1, transform.position + dir * config.attackRange + dir * visionWithoutAttack);
-        outOfRange.SetPosition(0, transform.position + dir * config.attackRange + dir * visionWithoutAttack);
+        shootRange.SetPosition(1, transform.position + dir * config.AttackRange);
+        visionRange.SetPosition(0, transform.position + dir * config.AttackRange);
+        visionRange.SetPosition(1, transform.position + dir * config.AttackRange + dir * visionWithoutAttack);
+        outOfRange.SetPosition(0, transform.position + dir * config.AttackRange + dir * visionWithoutAttack);
         outOfRange.SetPosition(1, player.position);
     }
 
