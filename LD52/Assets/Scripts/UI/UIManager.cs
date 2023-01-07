@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public static UIManager main;
+    private void Awake()
     {
-        
+        main = this;
     }
 
-    // Update is called once per frame
-    void Update()
+    [SerializeField]
+    private UIHealth uiPlayerHealth;
+
+    public void RegisterPlayerHealth(EntityHealth playerHealth)
     {
-        
+        uiPlayerHealth.Initialize(playerHealth);
     }
+
 }
