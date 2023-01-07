@@ -17,6 +17,9 @@ public class EnemyMovement : MonoBehaviour
 
     private float raycastWidth = 1f;
     private float attackDistanceCoef = 0.8f;
+    private bool isInAttackRange = false;
+    public bool IsInAttackRange { get { return isInAttackRange; } }
+    public Vector3 PlayerPosition { get { return player.position; } }
 
     // Start is called before the first frame update
     void Start()
@@ -55,10 +58,12 @@ public class EnemyMovement : MonoBehaviour
                 {
                     agent.isStopped = false;
                     agent.SetDestination(player.position);
+                    isInAttackRange = false;
                 }
                 else if (playerDistance <= attackDistanceCoef * config.AttackRange)
                 {
                     agent.isStopped = true;
+                    isInAttackRange = true;
                 }
 
                 if (playerDistance < config.VisionRange)

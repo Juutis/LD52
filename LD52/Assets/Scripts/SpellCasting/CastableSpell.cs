@@ -35,6 +35,7 @@ public class CastableSpell : MonoBehaviour
         IsPrepared = false;
         IsBeingCast = false;
         IsOnCooldown = false;
+        transform.localPosition = Vector3.zero;
     }
 
     public SpellCastResult Cast(bool keyDown = false)
