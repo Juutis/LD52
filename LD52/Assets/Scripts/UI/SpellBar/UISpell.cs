@@ -31,7 +31,6 @@ public class UISpell : MonoBehaviour
     [SerializeField, ReadOnly]
     private bool IsPrepared;
 
-    // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -93,7 +92,10 @@ public class UISpell : MonoBehaviour
     {
         if (IsBeingCast)
         {
-            animator.Play(castAnimation);
+            if (animator != null)
+            {
+                animator.Play(castAnimation);
+            }
         }
     }
 

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3c88d8d3966e152408fe2c0487e45746
+guid: aa6c4964c1dac384b91ecd7eb1731661
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -36,8 +36,8 @@ ModelImporter:
       name: Idle
       takeName: Scene
       internalID: -623603649343465320
-      firstFrame: 20
-      lastFrame: 40
+      firstFrame: 1
+      lastFrame: 48
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -60,13 +60,13 @@ ModelImporter:
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
+      additiveReferencePoseFrame: 1
     - serializedVersion: 16
-      name: Cast
+      name: Shoot
       takeName: Scene
-      internalID: -8800838248204228948
-      firstFrame: 0
-      lastFrame: 16
+      internalID: -1609281748187839663
+      firstFrame: 49
+      lastFrame: 120
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -89,7 +89,36 @@ ModelImporter:
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 20
+      additiveReferencePoseFrame: 49
+    - serializedVersion: 16
+      name: Walk
+      takeName: Scene
+      internalID: 723096430288179899
+      firstFrame: 121
+      lastFrame: 169
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 49
     isReadable: 0
   meshes:
     lODScreenPercentages: []
@@ -156,7 +185,7 @@ ModelImporter:
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 1
+  avatarSetup: 0
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   importBlendShapeDeformPercent: 1
   remapMaterialsIfMaterialImportModeIsNone: 0
