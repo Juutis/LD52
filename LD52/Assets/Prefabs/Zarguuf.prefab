@@ -43,32 +43,32 @@ PrefabInstance:
     - target: {fileID: -9042587762045654420, guid: 3c88d8d3966e152408fe2c0487e45746,
         type: 3}
       propertyPath: m_AABB.m_Center.x
-      value: NaN
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -9042587762045654420, guid: 3c88d8d3966e152408fe2c0487e45746,
         type: 3}
       propertyPath: m_AABB.m_Center.y
-      value: NaN
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -9042587762045654420, guid: 3c88d8d3966e152408fe2c0487e45746,
         type: 3}
       propertyPath: m_AABB.m_Center.z
-      value: NaN
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -9042587762045654420, guid: 3c88d8d3966e152408fe2c0487e45746,
         type: 3}
       propertyPath: m_AABB.m_Extent.x
-      value: NaN
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -9042587762045654420, guid: 3c88d8d3966e152408fe2c0487e45746,
         type: 3}
       propertyPath: m_AABB.m_Extent.y
-      value: NaN
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -9042587762045654420, guid: 3c88d8d3966e152408fe2c0487e45746,
         type: 3}
       propertyPath: m_AABB.m_Extent.z
-      value: NaN
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -9042587762045654420, guid: 3c88d8d3966e152408fe2c0487e45746,
         type: 3}
