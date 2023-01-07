@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class SpellShield : CastableSpell
 {
+    [SerializeField]
+    private GameObject effectContainer;
+    private Animator animator;
     // Start is called before the first frame update
     void Start()
     {
+        animator = GetComponent<Animator>();
 
     }
 
@@ -19,6 +23,7 @@ public class SpellShield : CastableSpell
     public override void PerformSpellEffect()
     {
         base.PerformSpellEffect();
-        Debug.Log($"Perform Shield");
+        animator.Play("spellShieldEffect");
+
     }
 }

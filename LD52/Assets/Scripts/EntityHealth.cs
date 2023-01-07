@@ -26,9 +26,13 @@ public class EntityHealth : MonoBehaviour
     public void Modify(int change)
     {
         Current += change;
-        if (Current < 0)
+        if (Current <= 0)
         {
             Current = 0;
+            if (tag == "Player")
+            {
+                Debug.Log("<color=red>YOU ARE DEAD!!!!</color>");
+            }
         }
         if (Current > Max)
         {
