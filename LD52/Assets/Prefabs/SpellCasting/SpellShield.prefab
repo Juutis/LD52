@@ -50,8 +50,11 @@ MonoBehaviour:
   spellType: 0
   icon: {fileID: 21300000, guid: 32e2028b70f95d14dbca862a259d2620, type: 3}
   cooldownLengthMs: 1
+  castRange: 10
   hotKey: 32
   castType: 0
+  spellTargeting: 4
+  mouseIndicatorMaterial: {fileID: 0}
   effectContainer: {fileID: 4935046508403879252}
 --- !u!114 &6801046063954320640
 MonoBehaviour:

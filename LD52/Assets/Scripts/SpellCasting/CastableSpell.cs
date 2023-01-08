@@ -102,6 +102,11 @@ public class CastableSpell : MonoBehaviour
         return castRange;
     }
 
+    public SpellTargeting GetSpellTargetType()
+    {
+        return spellTargeting;
+    }
+
     public void SetTargets(Transform targetEntity, Transform targetLocation)
     {
         spellTargetEntity = targetEntity;
@@ -145,7 +150,9 @@ public enum SpellCastType
 
 public enum SpellTargeting
 {
-    MouseTarget,
-    RaycastTarget,
+    TargetGroundNoClip,
+    TargetGroundClip,
+    TargetRaycastNoClip,
+    TargetRaycastClip,
     SelfTarget
 }
