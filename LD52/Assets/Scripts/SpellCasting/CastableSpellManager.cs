@@ -77,6 +77,9 @@ public class CastableSpellManager : MonoBehaviour
 
     void Update()
     {
+        if (GameManager.main.Paused) {
+            return;
+        }
         CastSpells();
     }
 }

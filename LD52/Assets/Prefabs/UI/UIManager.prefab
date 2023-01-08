@@ -568,7 +568,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5785715505556385214}
-  - {fileID: 8416279877662537327}
+  - {fileID: 3285930627988053721}
   m_Father: {fileID: 8952091386802186176}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -737,6 +737,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1942940184935822421}
+  - {fileID: 8416279877662537327}
   m_Father: {fileID: 5808949689323628163}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -905,6 +906,51 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &4089896491748188015
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3285930627988053721}
+  - component: {fileID: 3818909460261528380}
+  m_Layer: 5
+  m_Name: menuContainer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &3285930627988053721
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4089896491748188015}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5808949689323628163}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &3818909460261528380
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4089896491748188015}
+  m_CullTransparentMesh: 1
 --- !u!1 &4470912095252116226
 GameObject:
   m_ObjectHideFlags: 0
@@ -1356,13 +1402,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6311072292062137414}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2050004609424750711}
-  m_Father: {fileID: 5808949689323628163}
+  m_Father: {fileID: 5785715505556385214}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
@@ -1821,7 +1867,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 10/10
+  m_text: 10
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1940,6 +1986,38 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiGameTimer: {fileID: 3937938252698016681}
   uiDifficultyDisplay: {fileID: 1588114980459602668}
+  uiScreenPrefab: {fileID: 5493976819671157839, guid: 475ba69dfd79f6949887201655dcab06,
+    type: 3}
+  menuScreenContainer: {fileID: 3285930627988053721}
+  pauseScreen:
+    title: Paused
+    description: Take a deep breath.
+    background: {fileID: 21300000, guid: 4933cb784a5a2f94380708890d34528c, type: 3}
+    buttons:
+    - title: Continue
+      action: 2
+    - title: Restart
+      action: 0
+    - title: Main Menu
+      action: 1
+  gameOverScreen:
+    title: Game Over!
+    description: It seems the goblins were too hard on you.
+    background: {fileID: 21300000, guid: 99273fe9ddb93aa47b7a820620f6e1f7, type: 3}
+    buttons:
+    - title: Restart
+      action: 0
+    - title: Main Menu
+      action: 1
+  theEndScreen:
+    title: Victory!
+    description: You managed to steal the Big Berry! Congratulations!
+    background: {fileID: 21300000, guid: 6d22c7027ed9ece41a9116e77acd2eec, type: 3}
+    buttons:
+    - title: Restart
+      action: 0
+    - title: Main Menu
+      action: 1
   uiPlayerHealth: {fileID: 5651831681695499067}
 --- !u!114 &1588114980459602668
 MonoBehaviour:

@@ -32,6 +32,7 @@ public class EntityHealth : MonoBehaviour
             if (tag == "Player")
             {
                 Debug.Log("<color=red>YOU ARE DEAD!!!!</color>");
+                GameManager.main.GameOver();
             }
         }
         if (Current > Max)

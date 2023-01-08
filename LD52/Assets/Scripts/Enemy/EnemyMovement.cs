@@ -38,6 +38,10 @@ public class EnemyMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GameManager.main.Paused)
+        {
+            return;
+        }
         isInAttackRange = false;
         float playerDistance = EnemyToPlayer2D().magnitude;
 
