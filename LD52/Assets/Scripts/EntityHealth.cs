@@ -25,6 +25,10 @@ public class EntityHealth : MonoBehaviour
     }
     public void Modify(int change)
     {
+        if (tag == "Player" && change < 0)
+        {
+            UIManager.main.ShowBloodEffect();
+        }
         Current += change;
         if (Current <= 0)
         {
