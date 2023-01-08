@@ -10,9 +10,13 @@ public class EnemyShooter : MonoBehaviour, GameRhythmSubscriber
     private Transform shootPos;
     [SerializeField]
     private EnemyMovement enemyMovement;
-    private int notesBetweenShots = 8;
+    private int notesBetweenShots = 4;
 
     private EntityHitReceiver playerHitReceiver;
+
+    private float attackPoint = 0.7f;
+    private float attackDuration = 3.0f;
+    private bool readyToAttack = true;
 
     private void Start()
     {
@@ -26,17 +30,35 @@ public class EnemyShooter : MonoBehaviour, GameRhythmSubscriber
 
     }
 
-    private void Shoot()
+    public void StartShootAnimation() 
     {
         goblinAnimator.Shoot();
+    }
+
+    public void Shoot()
+    {
         ProjectileLauncher.main.Launch(playerHitReceiver.EnemyAimTarget.position, shootPos.position);
+    }
+
+    public void ResetAttack()
+    {
+        readyToAttack = true;
     }
 
     public void RhythmUpdate(int note)
     {
-        if (note % notesBetweenShots == 0 && enemyMovement.IsInAttackRange)
+        if (!readyToAttack)
         {
-            Shoot();
+            return;
+        }
+        int attackPointInNotes = Mathf.CeilToInt(attackPoint / GameRhythm.main.NoteLength);
+        if (note % notesBetweenShots == notesBetweenShots - attackPointInNotes && enemyMovement.IsInAttackRange)
+        {
+            float animationDelay = attackPoint - (attackPointInNotes * GameRhythm.main.NoteLength);
+            Invoke("StartShootAnimation", animationDelay);
+            Invoke("Shoot", animationDelay + attackPoint);
+            Invoke("ResetAttack", attackDuration);
+            readyToAttack = false;
         }
     }
 }
