@@ -53,7 +53,7 @@ public class MouseIndicator : MonoBehaviour
             }
             else if (spell.GetSpellTargetType() == SpellTargeting.TargetRaycastNoClip)
             {
-                Physics.Raycast(mouse, out RaycastHit spellTargetHitInfo, 100, LayerMask.GetMask("Obstacles"));
+                Physics.Raycast(mouse, out RaycastHit spellTargetHitInfo, 100, LayerMask.GetMask("DynamicObstacle"));
                 if (spellTargetHitInfo.collider != null)
                 {
                     spell.SetTargets(spellTargetHitInfo.collider.transform, player);

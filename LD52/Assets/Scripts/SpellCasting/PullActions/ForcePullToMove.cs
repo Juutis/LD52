@@ -12,6 +12,7 @@ public class ForcePullToMove : MonoBehaviour
     private Vector2 startPosition;
     private Vector2 targetPosition;
     private float lerpAmount = 0;
+    private bool pulling = false;
 
     // Start is called before the first frame update
     void Start()
@@ -23,8 +24,16 @@ public class ForcePullToMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = Vector.V2to3(Vector2.Lerp(startPosition, targetPosition, lerpAmount));
-        lerpAmount += pullSpeed * Time.deltaTime;
+        if (pulling)
+        {
+            lerpAmount += pullSpeed * Time.deltaTime;
+            transform.position = Vector.V2to3(Vector2.Lerp(startPosition, targetPosition, lerpAmount), transform.position.y);
+
+            if (lerpAmount >= 1)
+            {
+                pulling = false;
+            }
+        }
     }
 
     public void PullAction()
@@ -38,5 +47,6 @@ public class ForcePullToMove : MonoBehaviour
         lerpAmount = 0;
         startPosition = Vector.V3to2(transform.position);
         targetPosition = Vector.V3to2(transform.position) + moveDir.normalized * pullAmount;
+        pulling = true;
     }
 }
