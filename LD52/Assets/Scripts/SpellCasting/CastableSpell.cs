@@ -24,6 +24,8 @@ public class CastableSpell : MonoBehaviour
     private SpellTargeting spellTargeting;
     [SerializeField]
     private Material mouseIndicatorMaterial;
+    [SerializeField]
+    private float mouseIndicatorSize = 1f;
 
     public SpellType Type { get { return spellType; } }
     public Sprite Icon { get { return icon; } }
@@ -95,6 +97,11 @@ public class CastableSpell : MonoBehaviour
     public Material GetMouseMaterial()
     {
         return mouseIndicatorMaterial;
+    }
+
+    public float GetMouseIndicatorSize()
+    {
+        return mouseIndicatorSize;
     }
 
     public float GetCastRange()

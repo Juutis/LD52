@@ -33,6 +33,14 @@ public class MouseIndicator : MonoBehaviour
     void Update()
     {
         var spell = CastableSpellManager.main.GetPreparedSpells().FirstOrDefault();
+        if (spell != null)
+        {
+            transform.localScale = spell.GetMouseIndicatorSize() * Vector3.one;
+        }
+        else
+        {
+            transform.localScale = Vector3.one;
+        }
 
         Ray mouse = Camera.main.ScreenPointToRay(Input.mousePosition);
         Physics.Raycast(mouse, out RaycastHit hitInfo, 1000, LayerMask.GetMask("Ground"));
