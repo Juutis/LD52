@@ -5,6 +5,8 @@ using UnityEngine;
 public class CastableSpell : MonoBehaviour
 {
     private float cooldownTimer = 0f;
+    protected Transform spellTargetEntity;
+    protected Transform spellTargetLocation;
 
     [SerializeField]
     private SpellType spellType = SpellType.Shield;
@@ -98,6 +100,12 @@ public class CastableSpell : MonoBehaviour
     public float GetCastRange()
     {
         return castRange;
+    }
+
+    public void SetTargets(Transform targetEntity, Transform targetLocation)
+    {
+        spellTargetEntity = targetEntity;
+        spellTargetLocation = targetLocation;
     }
 
     protected virtual void Update()

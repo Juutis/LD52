@@ -20,5 +20,10 @@ public class SpellTeleport : CastableSpell
     {
         base.PerformSpellEffect();
         Debug.Log($"Perform Teleport");
+
+        if (spellTargetEntity.TryGetComponent<PlayerMovement>(out PlayerMovement movement))
+        {
+            movement.Teleport(spellTargetLocation);
+        }
     }
 }
