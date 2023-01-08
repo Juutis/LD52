@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 166691196665443720}
   - component: {fileID: 8086225000145742569}
   - component: {fileID: 4440736337046738570}
+  - component: {fileID: 5677675272790320431}
   m_Layer: 0
   m_Name: World
   m_TagString: Untagged
@@ -49,7 +50,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31da7d53c37ebd64b97f533af81870e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  music: {fileID: 0}
+  music: {fileID: 4440736337046738570}
   bpm: 120
   notesPerBeat: 4
 --- !u!82 &4440736337046738570
@@ -148,6 +149,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &5677675272790320431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8002698735542189116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91b44726d114c4943acc631b99244489, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  difficultyConfig: {fileID: 11400000, guid: 47c6f9fd393d1a9418f980e026ceae94, type: 2}
 --- !u!1001 &3051137546072204495
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -314,6 +328,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 166691196665443720}
     m_Modifications:
+    - target: {fileID: 444409454483882888, guid: 5e1ac16aed2a82d428c5d0f78c5bc248,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.x
+      value: 1.2369128e-10
+      objectReference: {fileID: 0}
+    - target: {fileID: 444409454483882888, guid: 5e1ac16aed2a82d428c5d0f78c5bc248,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.z
+      value: -0.000003933906
+      objectReference: {fileID: 0}
+    - target: {fileID: 997564018379350333, guid: 5e1ac16aed2a82d428c5d0f78c5bc248,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.21054414
+      objectReference: {fileID: 0}
+    - target: {fileID: 997564018379350333, guid: 5e1ac16aed2a82d428c5d0f78c5bc248,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.030524828
+      objectReference: {fileID: 0}
     - target: {fileID: 1698852861478484214, guid: 5e1ac16aed2a82d428c5d0f78c5bc248,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -394,6 +428,31 @@ PrefabInstance:
       propertyPath: entityHealth
       value: 
       objectReference: {fileID: 6431607508710238811}
+    - target: {fileID: 8327129819634942906, guid: 5e1ac16aed2a82d428c5d0f78c5bc248,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.51223254
+      objectReference: {fileID: 0}
+    - target: {fileID: 8327129819634942906, guid: 5e1ac16aed2a82d428c5d0f78c5bc248,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.14534867
+      objectReference: {fileID: 0}
+    - target: {fileID: 9059649123645148680, guid: 5e1ac16aed2a82d428c5d0f78c5bc248,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.x
+      value: -1.114131e-10
+      objectReference: {fileID: 0}
+    - target: {fileID: 9059649123645148680, guid: 5e1ac16aed2a82d428c5d0f78c5bc248,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.y
+      value: 1.9886762
+      objectReference: {fileID: 0}
+    - target: {fileID: 9059649123645148680, guid: 5e1ac16aed2a82d428c5d0f78c5bc248,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.z
+      value: 0.0000030547385
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
