@@ -6,7 +6,6 @@ using UnityEngine.AI;
 
 public class EnemyMovement : MonoBehaviour
 {
-    [SerializeField]
     private Transform player;
     private EntityHitReceiver playerHitReceiver;
 
@@ -37,6 +36,7 @@ public class EnemyMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        player = PlayerMovement.main.transform;
         playerHitReceiver = player.GetComponentInChildren<EntityHitReceiver>();
         agent = GetComponent<NavMeshAgent>();
         agent.speed = config.MovementSpeed;
@@ -56,7 +56,7 @@ public class EnemyMovement : MonoBehaviour
         {
             return;
         }
-        
+
         switch (state) {
             case EnemyState.IDLE:
                 handleIdle();
