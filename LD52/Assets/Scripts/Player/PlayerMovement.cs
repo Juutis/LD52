@@ -21,6 +21,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private Transform playerModel;
 
+    public Transform PlayerModel { get { return playerModel; } }
+
     // Start is called before the first frame update
     void Start()
     {

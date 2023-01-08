@@ -34,18 +34,25 @@ public class Projectile : MonoBehaviour, ParentCollider
 
     public void OnTriggerEnter(Collider other)
     {
-        Debug.Log($"[Projectile]: TriggerEnter '{other.name}'");
+        /*Debug.Log($"[Projectile]: TriggerEnter '{other.name}'");
         rb.velocity = Vector3.zero;
         rb.isKinematic = true;
         transform.parent = other.transform;
-        childCollider.Disable();
+        childCollider.Disable();*/
     }
     public void OnCollisionEnter(Collision other)
     {
         Debug.Log($"[Projectile]: CollisionEnter '{other.gameObject.name}'");
+        Transform newParent = other.transform;
         rb.velocity = Vector3.zero;
         rb.isKinematic = true;
-        transform.parent = other.transform;
+        if (other.gameObject.tag == "Player")
+        {
+            newParent = other.gameObject.GetComponent<PlayerMovement>().PlayerModel;
+            Debug.Log("Projectile hit player, new parentis: " + newParent);
+        }
+        Destroy(rb);
+        transform.parent = newParent;
         childCollider.Disable();
     }
 
