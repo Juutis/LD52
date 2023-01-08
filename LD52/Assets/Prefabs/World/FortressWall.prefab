@@ -9,7 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7222179417568006236}
-  m_Layer: 0
+  - component: {fileID: 6835849969140931382}
+  m_Layer: 6
   m_Name: FortressWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30,8 +31,29 @@ Transform:
   m_Children:
   - {fileID: 2855929004695560097}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &6835849969140931382
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1904617748286280106}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.1319957, y: 3.2996802, z: 0.52830875}
+  m_Center: {x: -0.005733192, y: 1.1498406, z: 0.024362862}
 --- !u!1001 &2317371599522658378
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -129,6 +151,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: dab74d63d595a0e4e90d27cc5d759da3,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
