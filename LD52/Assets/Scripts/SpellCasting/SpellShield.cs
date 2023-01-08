@@ -25,6 +25,11 @@ public class SpellShield : CastableSpell
         ZarguufAnimator.main.Cast();
         base.PerformSpellEffect();
         animator.Play("spellShieldEffect");
+        SoundManager.main.PlaySound(GameSoundType.Shield);
+    }
 
+    public void ShieldEnd()
+    {
+        //SoundManager.main.PauseLoop(GameSoundType.Shield);
     }
 }

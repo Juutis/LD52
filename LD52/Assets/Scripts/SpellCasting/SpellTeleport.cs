@@ -25,6 +25,7 @@ public class SpellTeleport : CastableSpell
         if (spellTargetEntity.TryGetComponent<PlayerMovement>(out PlayerMovement movement))
         {
             movement.Teleport(spellTargetLocation);
+            SoundManager.main.PlaySound(GameSoundType.Teleport);
         }
     }
 }
