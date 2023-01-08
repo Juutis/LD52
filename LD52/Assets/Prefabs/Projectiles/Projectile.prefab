@@ -81,7 +81,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   childCollider: {fileID: 2498963083584560605}
   rb: {fileID: 4360021732629778857}
-  speed: 5
   damage: 2
 --- !u!54 &4360021732629778857
 Rigidbody:
@@ -107,7 +106,7 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 0
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 1
 --- !u!1 &4360021732690195891

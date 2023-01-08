@@ -59,16 +59,23 @@ public class EnemyMovement : MonoBehaviour
 
                 if (playerDistance <= config.AttackRange)
                 {
-                    agent.isStopped = true;
                     isInAttackRange = true;
-                    goblinAnimator.SetWalking(false);
                 }
-                else if (angle < config.MoveAngle && playerDistance > config.AttackRange && isReadyToMove())
+                else
+                {
+                    isInAttackRange = false;
+                }
+
+                if (angle < config.MoveAngle && isReadyToMove())
                 {
                     agent.isStopped = false;
                     agent.SetDestination(player.position);
-                    isInAttackRange = false;
                     goblinAnimator.SetWalking(true);
+                }
+                else 
+                {
+                    agent.isStopped = true;
+                    goblinAnimator.SetWalking(false);
                 }
 
                 if (playerDistance < config.VisionRange)

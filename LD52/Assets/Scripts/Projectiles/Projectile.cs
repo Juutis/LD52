@@ -12,8 +12,7 @@ public class Projectile : MonoBehaviour, ParentCollider
 
     [SerializeField]
     private Rigidbody rb;
-    [SerializeField]
-    private float speed = 5f;
+    private float speed = 15f;
     [SerializeField]
     private int damage = 2;
     public int Damage { get { return damage; } }
@@ -25,7 +24,7 @@ public class Projectile : MonoBehaviour, ParentCollider
     {
         Initialize(childCollider);
         Vector3 force = (targetPosition - transform.position).normalized * speed;
-        rb.AddForce(force, ForceMode.Impulse);
+        rb.velocity = force;
     }
 
     public void Kill()
