@@ -14,6 +14,11 @@ public class ForcePullToMove : MonoBehaviour
     private float lerpAmount = 0;
     private bool pulling = false;
 
+    [SerializeField]
+    private List<Transform> wheels;
+
+    private float dir = 1.0f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +33,7 @@ public class ForcePullToMove : MonoBehaviour
         {
             lerpAmount += pullSpeed * Time.deltaTime;
             transform.position = Vector.V2to3(Vector2.Lerp(startPosition, targetPosition, lerpAmount), transform.position.y);
+            rotateWheels(pullSpeed * Time.deltaTime);
 
             if (lerpAmount >= 1)
             {
@@ -48,5 +54,15 @@ public class ForcePullToMove : MonoBehaviour
         startPosition = Vector.V3to2(transform.position);
         targetPosition = Vector.V3to2(transform.position) + moveDir.normalized * pullAmount;
         pulling = true;
+        dir = Vector2.Angle(forwards, moveDir) < 10.0f ? -1.0f : 1.0f;
+    }
+
+    private void rotateWheels(float distance)
+    {
+        var rotateAmount = Mathf.Rad2Deg * distance / (2.0f * Mathf.PI) * 10f * dir;
+        foreach(var wheel in wheels) 
+        {
+            wheel.Rotate(Vector3.up, rotateAmount, Space.Self);
+        }
     }
 }
