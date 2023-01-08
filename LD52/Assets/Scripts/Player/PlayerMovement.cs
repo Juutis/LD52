@@ -34,4 +34,9 @@ public class PlayerMovement : MonoBehaviour
     {
         body.velocity = new Vector3(horizontalAxis, 0, verticalAxis).normalized * gameConfig.PlayerMovementSpeed;
     }
+
+    public void Teleport(Transform teleportLocation)
+    {
+        transform.position = Vector.SetY(teleportLocation.position, transform.position.y);
+    }
 }
