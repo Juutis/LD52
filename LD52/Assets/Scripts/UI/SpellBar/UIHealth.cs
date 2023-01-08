@@ -69,7 +69,7 @@ public class UIHealth : MonoBehaviour
 
     private void DisplayHealth(int newHealth)
     {
-        txtHealth.text = $"{newHealth}/{health.Max}";
+        txtHealth.text = $"{newHealth}";
         imgHealth.fillAmount = (float)newHealth / (float)health.Max;
     }
 }

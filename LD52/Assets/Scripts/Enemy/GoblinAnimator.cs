@@ -18,6 +18,8 @@ public class GoblinAnimator : MonoBehaviour
     [SerializeField]
     private GameObject arrowInHand;
 
+    public bool ReadyToMove { get; private set; } = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -45,11 +47,13 @@ public class GoblinAnimator : MonoBehaviour
     public void Shoot()
     {
         anim.SetBool("Shoot", true);
+        ReadyToMove = false;
     }
 
     public void ShootCallback()
     {
         anim.SetBool("Shoot", false);
+        ReadyToMove = true;
     }
 
     public void Fire()

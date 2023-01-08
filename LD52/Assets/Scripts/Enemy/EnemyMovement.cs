@@ -21,6 +21,7 @@ public class EnemyMovement : MonoBehaviour
     private bool isInAttackRange = false;
     public bool IsInAttackRange { get { return isInAttackRange; } }
     public Vector3 PlayerPosition { get { return playerHitReceiver.transform.position; } }
+    private GoblinAnimator goblinAnimator;
 
     // Start is called before the first frame update
     void Start()
@@ -30,16 +31,14 @@ public class EnemyMovement : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         agent.speed = config.MovementSpeed;
         agent.angularSpeed = config.TurnRate;
+        agent.acceleration = 100.0f;
+        goblinAnimator = GetComponentInChildren<GoblinAnimator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-
-    }
-
-    private void FixedUpdate()
-    {
+        isInAttackRange = false;
         float playerDistance = EnemyToPlayer2D().magnitude;
 
         // if player is within vision range or enemy is still aggroed
@@ -53,19 +52,30 @@ public class EnemyMovement : MonoBehaviour
             {
                 // rotate towards player
                 var targetRotation = Quaternion.LookRotation(EnemyToPlayerDir(), transform.up);
-                transform.localRotation = Quaternion.RotateTowards(transform.localRotation, targetRotation, config.TurnRate);
+                var deltaAngle = Quaternion.Angle(transform.localRotation, targetRotation);
+                transform.localRotation = Quaternion.RotateTowards(transform.localRotation, targetRotation, Mathf.Min(deltaAngle, config.TurnRate * Time.deltaTime));
 
                 float angle = Vector3.Angle(EnemyToPlayerDir(), transform.forward);
-                if (angle < config.MoveAngle && playerDistance > attackDistanceCoef * config.AttackRange)
+
+                if (playerDistance <= config.AttackRange)
+                {
+                    isInAttackRange = true;
+                }
+                else
+                {
+                    isInAttackRange = false;
+                }
+
+                if (angle < config.MoveAngle && isReadyToMove())
                 {
                     agent.isStopped = false;
                     agent.SetDestination(player.position);
-                    isInAttackRange = false;
+                    goblinAnimator.SetWalking(true);
                 }
-                else if (playerDistance <= attackDistanceCoef * config.AttackRange)
+                else 
                 {
                     agent.isStopped = true;
-                    isInAttackRange = true;
+                    goblinAnimator.SetWalking(false);
                 }
 
                 if (playerDistance < config.VisionRange)
@@ -76,6 +86,15 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 
+    private void FixedUpdate()
+    {
+    }
+
+    private bool isReadyToMove()
+    {
+        return goblinAnimator.ReadyToMove;
+    }
+
     private Vector3 GetPlayerRaycastDir(Vector3 offset)
     {
         var playerPos2 = new Vector2(player.position.x, player.position.z);
@@ -83,7 +102,7 @@ public class EnemyMovement : MonoBehaviour
         var offset2 = new Vector2(offset.x, offset.z) * raycastWidth;
         var result2 = playerPos2 + offset2 - ownPos2;
 
-        return new Vector3(result2.x, 0.5f, result2.y);
+        return new Vector3(result2.x, 0, result2.y);
     }
 
     private Vector2 EnemyToPlayer2D()
@@ -96,6 +115,6 @@ public class EnemyMovement : MonoBehaviour
     private Vector3 EnemyToPlayerDir()
     {
         var v2Dir = EnemyToPlayer2D().normalized;
-        return new(v2Dir.x, 0.5f, v2Dir.y);
+        return new(v2Dir.x, 0, v2Dir.y);
     }
 }

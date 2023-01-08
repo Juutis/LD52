@@ -11,9 +11,9 @@ public class EntityHealth : MonoBehaviour
 
     void Start()
     {
-        Initialize(12);
         if (tag == "Player")
         {
+            Initialize(GameManager.main.Difficulty.Health);
             UIManager.main.RegisterPlayerHealth(this);
         }
     }

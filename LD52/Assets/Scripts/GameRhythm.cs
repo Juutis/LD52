@@ -22,7 +22,7 @@ public class GameRhythm : MonoBehaviour
     private float bpm = 120;
     private float previousTime = 0f;
     private float beatLength;
-    private float noteLength;
+    public float NoteLength { get; private set; }
     [SerializeField]
     private int notesPerBeat = 4;
 
@@ -35,7 +35,7 @@ public class GameRhythm : MonoBehaviour
     void Start()
     {
         beatLength = 60f / bpm;
-        noteLength = beatLength / (float)notesPerBeat;
+        NoteLength = beatLength / (float)notesPerBeat;
         songStartTime = (float)AudioSettings.dspTime;
         music.Play();
     }
@@ -56,7 +56,7 @@ public class GameRhythm : MonoBehaviour
             return;
         }
         songPosition = (float)(AudioSettings.dspTime - songStartTime);
-        int newIndex = (int)(songPosition / noteLength);
+        int newIndex = (int)(songPosition / NoteLength);
         if (newIndex > currentNote)
         {
             currentNote = newIndex;
