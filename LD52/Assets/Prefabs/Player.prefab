@@ -53,6 +53,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameConfig: {fileID: 11400000, guid: beefd293a1062644f8830cd12e671370, type: 2}
   body: {fileID: 1878661729433717367}
+  playerModel: {fileID: 1698852861478484214}
 --- !u!136 &1878661729433717366
 CapsuleCollider:
   m_ObjectHideFlags: 0

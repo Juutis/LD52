@@ -18,6 +18,9 @@ public class PlayerMovement : MonoBehaviour
     private float verticalAxis;
     private float horizontalAxis;
 
+    [SerializeField]
+    private Transform playerModel;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,6 +35,17 @@ public class PlayerMovement : MonoBehaviour
         }
         horizontalAxis = Input.GetAxisRaw("Horizontal");
         verticalAxis = Input.GetAxisRaw("Vertical");
+
+        Ray mouse = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Physics.Raycast(mouse, out RaycastHit hitInfo, 1000, LayerMask.GetMask("Ground"));
+
+        if (hitInfo.collider != null)
+        {
+            var mousePos = hitInfo.point;
+            var mouseDir = mousePos - playerModel.position;
+            mouseDir.y = 0.0f;
+            playerModel.forward = mouseDir;
+        }
     }
 
     private void FixedUpdate()
