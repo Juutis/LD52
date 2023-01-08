@@ -46,6 +46,15 @@ public class PlayerMovement : MonoBehaviour
             mouseDir.y = 0.0f;
             playerModel.forward = mouseDir;
         }
+
+        if (body.velocity.magnitude > 0.1f)
+        {
+            ZarguufAnimator.main.Walk(true);
+        }
+        else
+        {
+            ZarguufAnimator.main.Walk(false);
+        }
     }
 
     private void FixedUpdate()

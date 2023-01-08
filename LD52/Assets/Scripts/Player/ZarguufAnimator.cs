@@ -41,4 +41,9 @@ public class ZarguufAnimator : MonoBehaviour
     {
         anim.SetBool("Cast", false);
     }
+
+    public void Walk(bool walking)
+    {
+        anim.SetBool("Walk", walking);
+    }
 }

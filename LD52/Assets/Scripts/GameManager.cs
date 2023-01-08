@@ -20,6 +20,9 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private int maxBerries = 100;
     private int currentBerryCount = 0;
+
+    [SerializeField]
+    private AudioSource MenuMusic;
     private void Awake()
     {
         main = this;
@@ -36,12 +39,14 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0f;
         gameTimer.Pause();
         GameRhythm.main.Pause();
+        MenuMusic.Play();
         paused = true;
     }
     private void Unpause()
     {
         Time.timeScale = 1f;
         gameTimer.Unpause();
+        MenuMusic.Pause();
         GameRhythm.main.Unpause();
         paused = false;
     }
