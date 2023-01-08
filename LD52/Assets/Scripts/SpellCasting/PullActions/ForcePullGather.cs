@@ -59,7 +59,7 @@ public class ForcePullGather : MonoBehaviour
     {
         for (int i = 0; i < pullBerryCount; i++)
         {
-            if (allBerries.Count > 1)
+            if (allBerries.Count >= 1)
             {
                 Transform berry = allBerries[0];
                 allBerries.Remove(berry);

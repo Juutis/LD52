@@ -14,7 +14,7 @@ public class Pullable : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        hilight.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
