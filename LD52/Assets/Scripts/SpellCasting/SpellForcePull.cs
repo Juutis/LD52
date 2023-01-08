@@ -31,6 +31,7 @@ public class SpellForcePull : CastableSpell
     public override void PerformSpellEffect()
     {
         base.PerformSpellEffect();
+        ZarguufAnimator.main.Cast();
         // spellTargetEntity.transform.position = spellTargetLocation.position;
         if (spellTargetEntity != null && spellTargetEntity.TryGetComponent(out Pullable pullable))
         {

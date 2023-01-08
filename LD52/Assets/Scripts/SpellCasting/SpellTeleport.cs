@@ -18,6 +18,7 @@ public class SpellTeleport : CastableSpell
 
     public override void PerformSpellEffect()
     {
+        ZarguufAnimator.main.Cast();
         base.PerformSpellEffect();
         Debug.Log($"Perform Teleport");
 
