@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: GameConfig
   m_EditorClassIdentifier: 
   EnemyFireResolution: 1
-  PlayerMovementSpeed: 10
+  PlayerMovementSpeed: 6
