@@ -24,7 +24,7 @@ public class EntityHitReceiver : MonoBehaviour, ParentCollider
     }
     public void OnTriggerEnter(Collider other)
     {
-        Debug.Log($"[EntityHitReceiver]: TriggerEnter '{other.name}'");
+        //Debug.Log($"[EntityHitReceiver]: TriggerEnter '{other.name}'");
 
     }
     public void OnCollisionEnter(Collision other)
