@@ -44,6 +44,11 @@ PrefabInstance:
       propertyPath: m_BaseOffset
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2579716543470454173, guid: 4f289afc770f86443a895c77af6f63dd,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2579716543470454174, guid: 4f289afc770f86443a895c77af6f63dd,
         type: 3}
       propertyPath: m_RootOrder
@@ -216,5 +221,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goblinAnimator: {fileID: 5194974701905489949}
-  shootPos: {fileID: 0}
+  shootPos: {fileID: 8327077016633429957}
   enemyMovement: {fileID: 7722447051069690624}

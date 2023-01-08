@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class EnemyDebug : MonoBehaviour
 {
-    [SerializeField]
     private Transform player;
 
     [SerializeField]
@@ -23,6 +22,7 @@ public class EnemyDebug : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        player = PlayerMovement.main.transform;
     }
 
     // Update is called once per frame

@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class ZarguufAnimator : MonoBehaviour
 {
+    public static ZarguufAnimator main;
+
+    public void Awake()
+    {
+        main = this;
+    }
+
     private Animator anim;
 
     [SerializeField]

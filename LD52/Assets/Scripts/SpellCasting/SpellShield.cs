@@ -22,6 +22,7 @@ public class SpellShield : CastableSpell
 
     public override void PerformSpellEffect()
     {
+        ZarguufAnimator.main.Cast();
         base.PerformSpellEffect();
         animator.Play("spellShieldEffect");
 
