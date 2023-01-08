@@ -60,7 +60,7 @@ public class ForcePullToMove : MonoBehaviour
     private void rotateWheels(float distance)
     {
         var rotateAmount = Mathf.Rad2Deg * distance / (2.0f * Mathf.PI) * 10f * dir;
-        foreach(var wheel in wheels) 
+        foreach(var wheel in wheels)
         {
             wheel.Rotate(Vector3.up, rotateAmount, Space.Self);
         }

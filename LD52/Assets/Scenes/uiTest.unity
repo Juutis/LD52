@@ -951,6 +951,46 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1807248802158507293, guid: 44f6edfb824104b4492b4b04dc6dab05,
+        type: 3}
+      propertyPath: m_Swing1Limit.limit
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1807248802158507293, guid: 44f6edfb824104b4492b4b04dc6dab05,
+        type: 3}
+      propertyPath: m_Swing2Limit.limit
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1807248802158507293, guid: 44f6edfb824104b4492b4b04dc6dab05,
+        type: 3}
+      propertyPath: m_LowTwistLimit.limit
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1807248802158507293, guid: 44f6edfb824104b4492b4b04dc6dab05,
+        type: 3}
+      propertyPath: m_HighTwistLimit.limit
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1807248802158507293, guid: 44f6edfb824104b4492b4b04dc6dab05,
+        type: 3}
+      propertyPath: m_SwingLimitSpring.damper
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1807248802158507293, guid: 44f6edfb824104b4492b4b04dc6dab05,
+        type: 3}
+      propertyPath: m_SwingLimitSpring.spring
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1807248802158507293, guid: 44f6edfb824104b4492b4b04dc6dab05,
+        type: 3}
+      propertyPath: m_TwistLimitSpring.damper
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1807248802158507293, guid: 44f6edfb824104b4492b4b04dc6dab05,
+        type: 3}
+      propertyPath: m_TwistLimitSpring.spring
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 1881490655764982112, guid: 44f6edfb824104b4492b4b04dc6dab05,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -1091,6 +1131,46 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7098844946919225501, guid: 44f6edfb824104b4492b4b04dc6dab05,
+        type: 3}
+      propertyPath: m_Swing1Limit.limit
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7098844946919225501, guid: 44f6edfb824104b4492b4b04dc6dab05,
+        type: 3}
+      propertyPath: m_Swing2Limit.limit
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7098844946919225501, guid: 44f6edfb824104b4492b4b04dc6dab05,
+        type: 3}
+      propertyPath: m_LowTwistLimit.limit
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7098844946919225501, guid: 44f6edfb824104b4492b4b04dc6dab05,
+        type: 3}
+      propertyPath: m_HighTwistLimit.limit
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7098844946919225501, guid: 44f6edfb824104b4492b4b04dc6dab05,
+        type: 3}
+      propertyPath: m_SwingLimitSpring.damper
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7098844946919225501, guid: 44f6edfb824104b4492b4b04dc6dab05,
+        type: 3}
+      propertyPath: m_SwingLimitSpring.spring
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7098844946919225501, guid: 44f6edfb824104b4492b4b04dc6dab05,
+        type: 3}
+      propertyPath: m_TwistLimitSpring.damper
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7098844946919225501, guid: 44f6edfb824104b4492b4b04dc6dab05,
+        type: 3}
+      propertyPath: m_TwistLimitSpring.spring
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 7283028333110993475, guid: 44f6edfb824104b4492b4b04dc6dab05,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -1155,6 +1235,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9132364594186042190, guid: 44f6edfb824104b4492b4b04dc6dab05,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 10.1
       objectReference: {fileID: 0}
     - target: {fileID: 9132364595227308387, guid: 44f6edfb824104b4492b4b04dc6dab05,
         type: 3}
