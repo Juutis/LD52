@@ -16,6 +16,10 @@ public class GameManager : MonoBehaviour
     public GameTimer GameTimer { get { return gameTimer; } }
     private bool paused = false;
     public bool Paused { get { return paused; } }
+
+    [SerializeField]
+    private int maxBerries = 100;
+    private int currentBerryCount = 0;
     private void Awake()
     {
         main = this;
@@ -24,7 +28,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         gameTimer = new GameTimer();
-        UIManager.main.Initialize(gameTimer, Difficulty);
+        UIManager.main.Initialize(gameTimer, Difficulty, maxBerries);
     }
 
     private void Pause()
@@ -40,6 +44,28 @@ public class GameManager : MonoBehaviour
         gameTimer.Unpause();
         GameRhythm.main.Unpause();
         paused = false;
+    }
+
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            AddBerry(1);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha6))
+        {
+            AddBerry(6);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            AddBerry(4);
+        }
+    }
+    public void AddBerry(int count)
+    {
+        currentBerryCount += count;
+        UIManager.main.AddBerry(count);
     }
 
     public void PauseGame()
