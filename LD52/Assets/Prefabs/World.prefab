@@ -327,6 +327,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: -13.693
       objectReference: {fileID: 0}
+    - target: {fileID: 2706803738226383951, guid: 0aa8d1b8b3184814081202117c7e0533,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.5666747
+      objectReference: {fileID: 0}
+    - target: {fileID: 2706803738226383951, guid: 0aa8d1b8b3184814081202117c7e0533,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.07859295
+      objectReference: {fileID: 0}
     - target: {fileID: 3199279945133384155, guid: 0aa8d1b8b3184814081202117c7e0533,
         type: 3}
       propertyPath: m_RootOrder
@@ -386,6 +396,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Levels
+      objectReference: {fileID: 0}
+    - target: {fileID: 4500797311242885693, guid: 0aa8d1b8b3184814081202117c7e0533,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.5666747
+      objectReference: {fileID: 0}
+    - target: {fileID: 4500797311242885693, guid: 0aa8d1b8b3184814081202117c7e0533,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.07859295
+      objectReference: {fileID: 0}
+    - target: {fileID: 5479329172556093926, guid: 0aa8d1b8b3184814081202117c7e0533,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.5666747
+      objectReference: {fileID: 0}
+    - target: {fileID: 5479329172556093926, guid: 0aa8d1b8b3184814081202117c7e0533,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.07859295
+      objectReference: {fileID: 0}
+    - target: {fileID: 8379670301477401517, guid: 0aa8d1b8b3184814081202117c7e0533,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.5666747
+      objectReference: {fileID: 0}
+    - target: {fileID: 8379670301477401517, guid: 0aa8d1b8b3184814081202117c7e0533,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.07859295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -769,6 +809,21 @@ PrefabInstance:
       propertyPath: m_ProjectionMode
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8158074784698165628, guid: 5e1ac16aed2a82d428c5d0f78c5bc248,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.x
+      value: 1.2369128e-10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8158074784698165628, guid: 5e1ac16aed2a82d428c5d0f78c5bc248,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.y
+      value: 1.3476237
+      objectReference: {fileID: 0}
+    - target: {fileID: 8158074784698165628, guid: 5e1ac16aed2a82d428c5d0f78c5bc248,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.z
+      value: -0.000003933906
+      objectReference: {fileID: 0}
     - target: {fileID: 8327129819634942906, guid: 5e1ac16aed2a82d428c5d0f78c5bc248,
         type: 3}
       propertyPath: m_LocalRotation.x
@@ -832,7 +887,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0, y: 0, z: 0}
+  m_ConnectedAnchor: {x: -1.114131e-10, y: 1.9886762, z: 0.0000030547385}
   serializedVersion: 3
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
