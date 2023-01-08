@@ -10,6 +10,27 @@ public class UIManager : MonoBehaviour
     private UIGameTimer uiGameTimer;
     [SerializeField]
     private UIDifficultyDisplay uiDifficultyDisplay;
+
+    [SerializeField]
+    private UIMenuScreen uiScreenPrefab;
+    [SerializeField]
+    private Transform menuScreenContainer;
+    private UIMenuScreen uiPauseScreen;
+
+    private UIMenuScreen uiGameOverScreen;
+
+    private UIMenuScreen uiTheEndScreen;
+    [SerializeField]
+    private MenuScreen pauseScreen;
+    [SerializeField]
+    private MenuScreen gameOverScreen;
+    [SerializeField]
+    private MenuScreen theEndScreen;
+
+    [SerializeField]
+    private UIEffect bloodEffect;
+
+    private bool aMenuIsOpen = false;
     private void Awake()
     {
         main = this;
@@ -19,14 +40,57 @@ public class UIManager : MonoBehaviour
     {
         uiGameTimer.Initialize(timer);
         uiDifficultyDisplay.Initialize(difficulty);
+        uiPauseScreen = Instantiate(uiScreenPrefab, Vector3.zero, Quaternion.identity, menuScreenContainer);
+        uiPauseScreen.Initialize(pauseScreen);
+        uiGameOverScreen = Instantiate(uiScreenPrefab, Vector3.zero, Quaternion.identity, menuScreenContainer);
+        uiGameOverScreen.Initialize(gameOverScreen);
+        uiTheEndScreen = Instantiate(uiScreenPrefab, Vector3.zero, Quaternion.identity, menuScreenContainer);
+        uiTheEndScreen.Initialize(theEndScreen);
     }
 
     [SerializeField]
     private UIHealth uiPlayerHealth;
 
+    public void ShowBloodEffect()
+    {
+        bloodEffect.Play();
+    }
+
     public void RegisterPlayerHealth(EntityHealth playerHealth)
     {
         uiPlayerHealth.Initialize(playerHealth);
+    }
+
+    public void MenuWasClosed()
+    {
+        aMenuIsOpen = false;
+    }
+
+    public void OpenGameOverMenu()
+    {
+        uiGameOverScreen.Open();
+    }
+
+    public void OpenTheEndMenu()
+    {
+        uiTheEndScreen.Open();
+    }
+
+    private void CheckMenus()
+    {
+        if (aMenuIsOpen)
+        {
+            return;
+        }
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            uiPauseScreen.Open();
+        }
+    }
+
+    void Update()
+    {
+        CheckMenus();
     }
 
 }

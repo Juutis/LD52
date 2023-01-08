@@ -6,10 +6,15 @@ using UnityEngine;
 public class EnemyConfigScriptableObject : ScriptableObject
 {
     public float VisionRange;
+    public float ConeOfVision;
+    public float HearingRange;
     public float AttackRange;
+    public float MinAttackRange;
     public float MovementSpeed;
     public float TurnRate;
     public float MoveAngle;
-    public float AggroTimeout;
-    public float RateOfFire;
+    public float SearchDuration;
+    public float SearchMaxWait;
+    public float SearchMinWait;
+    public float SearchRange;
 }

@@ -25,6 +25,10 @@ public class EntityHealth : MonoBehaviour
     }
     public void Modify(int change)
     {
+        if (tag == "Player" && change < 0)
+        {
+            UIManager.main.ShowBloodEffect();
+        }
         Current += change;
         if (Current <= 0)
         {
@@ -32,6 +36,7 @@ public class EntityHealth : MonoBehaviour
             if (tag == "Player")
             {
                 Debug.Log("<color=red>YOU ARE DEAD!!!!</color>");
+                GameManager.main.GameOver();
             }
         }
         if (Current > Max)

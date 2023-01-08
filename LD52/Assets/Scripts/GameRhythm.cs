@@ -40,6 +40,16 @@ public class GameRhythm : MonoBehaviour
         music.Play();
     }
 
+    public void Pause()
+    {
+        music.Pause();
+    }
+
+    public void Unpause()
+    {
+        music.Play();
+    }
+
     public void Subscribe(GameRhythmSubscriber subscriber)
     {
         subscribers.Add(subscriber);

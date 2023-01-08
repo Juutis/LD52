@@ -37,7 +37,7 @@ public class EnemyShooter : MonoBehaviour, GameRhythmSubscriber
 
     public void Shoot()
     {
-        ProjectileLauncher.main.Launch(playerHitReceiver.EnemyAimTarget.position, shootPos.position);
+        ProjectileLauncher.main.Launch(enemyMovement.LastPlayerPosition + 0.5f * Vector3.up, shootPos.position);
     }
 
     public void ResetAttack()
