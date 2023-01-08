@@ -1,0 +1,95 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!319 &31900000
+AvatarMask:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Goblin Upper Body
+  m_Mask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: Armature
+    m_Weight: 0
+  - m_Path: Armature/root
+    m_Weight: 0
+  - m_Path: Armature/root/hip_l
+    m_Weight: 0
+  - m_Path: Armature/root/hip_l/leg_upper_l
+    m_Weight: 0
+  - m_Path: Armature/root/hip_l/leg_upper_l/leg_lower_l
+    m_Weight: 0
+  - m_Path: Armature/root/hip_l/leg_upper_l/leg_lower_l/foot_l
+    m_Weight: 0
+  - m_Path: Armature/root/hip_l/leg_upper_l/leg_lower_l/foot_l/toes_l
+    m_Weight: 0
+  - m_Path: Armature/root/hip_l/leg_upper_l/leg_lower_l/foot_l/toes_l/toes_l_end
+    m_Weight: 0
+  - m_Path: Armature/root/hip_r
+    m_Weight: 0
+  - m_Path: Armature/root/hip_r/leg_upper_r
+    m_Weight: 0
+  - m_Path: Armature/root/hip_r/leg_upper_r/leg_lower_r
+    m_Weight: 0
+  - m_Path: Armature/root/hip_r/leg_upper_r/leg_lower_r/foot_r
+    m_Weight: 0
+  - m_Path: Armature/root/hip_r/leg_upper_r/leg_lower_r/foot_r/toes_r
+    m_Weight: 0
+  - m_Path: Armature/root/hip_r/leg_upper_r/leg_lower_r/foot_r/toes_r/toes_r_end
+    m_Weight: 0
+  - m_Path: Armature/root/spine1
+    m_Weight: 0
+  - m_Path: Armature/root/spine1/spine2
+    m_Weight: 1
+  - m_Path: Armature/root/spine1/spine2/shoulder_l
+    m_Weight: 1
+  - m_Path: Armature/root/spine1/spine2/shoulder_l/arm_upper_l
+    m_Weight: 1
+  - m_Path: Armature/root/spine1/spine2/shoulder_l/arm_upper_l/arm_lower_l
+    m_Weight: 1
+  - m_Path: Armature/root/spine1/spine2/shoulder_l/arm_upper_l/arm_lower_l/hand_l
+    m_Weight: 1
+  - m_Path: Armature/root/spine1/spine2/shoulder_l/arm_upper_l/arm_lower_l/hand_l/hand_l_end
+    m_Weight: 1
+  - m_Path: Armature/root/spine1/spine2/shoulder_r
+    m_Weight: 1
+  - m_Path: Armature/root/spine1/spine2/shoulder_r/arm_upper_r
+    m_Weight: 1
+  - m_Path: Armature/root/spine1/spine2/shoulder_r/arm_upper_r/arm_lower_r
+    m_Weight: 1
+  - m_Path: Armature/root/spine1/spine2/shoulder_r/arm_upper_r/arm_lower_r/hand_r
+    m_Weight: 1
+  - m_Path: Armature/root/spine1/spine2/shoulder_r/arm_upper_r/arm_lower_r/hand_r/hand_r_end
+    m_Weight: 1
+  - m_Path: Armature/root/spine1/spine2/spine3
+    m_Weight: 1
+  - m_Path: Armature/root/spine1/spine2/spine3/neck
+    m_Weight: 1
+  - m_Path: Armature/root/spine1/spine2/spine3/neck/ear1_l
+    m_Weight: 1
+  - m_Path: Armature/root/spine1/spine2/spine3/neck/ear1_l/ear2_l
+    m_Weight: 1
+  - m_Path: Armature/root/spine1/spine2/spine3/neck/ear1_l/ear2_l/ear3_l
+    m_Weight: 1
+  - m_Path: Armature/root/spine1/spine2/spine3/neck/ear1_l/ear2_l/ear3_l/ear3_l_end
+    m_Weight: 1
+  - m_Path: Armature/root/spine1/spine2/spine3/neck/ear1_r
+    m_Weight: 1
+  - m_Path: Armature/root/spine1/spine2/spine3/neck/ear1_r/ear2_r
+    m_Weight: 1
+  - m_Path: Armature/root/spine1/spine2/spine3/neck/ear1_r/ear2_r/ear3_r
+    m_Weight: 1
+  - m_Path: Armature/root/spine1/spine2/spine3/neck/ear1_r/ear2_r/ear3_r/ear3_r_end
+    m_Weight: 1
+  - m_Path: Armature/root/spine1/spine2/spine3/neck/head
+    m_Weight: 1
+  - m_Path: Armature/root/spine1/spine2/spine3/neck/head/head_end
+    m_Weight: 1
+  - m_Path: Cloth
+    m_Weight: 1
+  - m_Path: Crossbow
+    m_Weight: 1
+  - m_Path: Goblin
+    m_Weight: 1

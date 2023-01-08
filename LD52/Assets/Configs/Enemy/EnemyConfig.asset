@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   VisionRange: 16
   AttackRange: 8
-  MovementSpeed: 5
-  TurnRate: 15
+  MovementSpeed: 2
+  TurnRate: 90
   MoveAngle: 15
   AggroTimeout: 1
   RateOfFire: 10

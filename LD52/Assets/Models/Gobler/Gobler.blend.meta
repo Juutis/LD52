@@ -100,15 +100,15 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.82758623
-        functionName: ShootCallback
+      - time: 0.8379889
+        functionName: PutArrowToWeapon
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.8379889
-        functionName: PutArrowToWeapon
+      - time: 0.9504252
+        functionName: ShootCallback
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
@@ -213,7 +213,7 @@ ModelImporter:
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 0
+  avatarSetup: 1
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   importBlendShapeDeformPercent: 1
   remapMaterialsIfMaterialImportModeIsNone: 0
