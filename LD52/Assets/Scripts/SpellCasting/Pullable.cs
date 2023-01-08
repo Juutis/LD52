@@ -8,6 +8,9 @@ public class Pullable : MonoBehaviour
     [SerializeField]
     private UnityEvent pullAction;
 
+    [SerializeField]
+    private Transform hilight;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,5 +27,15 @@ public class Pullable : MonoBehaviour
     {
         Debug.Log($"Get Force Pull Action");
         return pullAction;
+    }
+
+    public void Highlight()
+    {
+        hilight.gameObject.SetActive(true);
+    }
+
+    public void Unhighlight()
+    {
+        hilight.gameObject.SetActive(false);
     }
 }

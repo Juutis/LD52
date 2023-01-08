@@ -58,6 +58,9 @@ public class MouseIndicator : MonoBehaviour
                 {
                     spell.SetTargets(spellTargetHitInfo.collider.transform, player);
                 }
+
+                transform.position = new Vector3(mousePos.x, 0.1f, mousePos.z);
+                meshRenderer.sharedMaterial = spell.GetMouseMaterial();
             }
         }
 
