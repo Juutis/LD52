@@ -26,12 +26,20 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GameManager.main.Paused)
+        {
+            return;
+        }
         horizontalAxis = Input.GetAxisRaw("Horizontal");
         verticalAxis = Input.GetAxisRaw("Vertical");
     }
 
     private void FixedUpdate()
     {
+        if (GameManager.main.Paused)
+        {
+            return;
+        }
         body.velocity = new Vector3(horizontalAxis, 0, verticalAxis).normalized * gameConfig.PlayerMovementSpeed;
     }
 

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4946228219426124503
+--- !u!1 &963183801311859086
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,23 +8,23 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5137424804847201796}
-  - component: {fileID: 7616740537239330882}
+  - component: {fileID: 1185001631791606365}
+  - component: {fileID: 4292913310127307540}
   m_Layer: 0
-  m_Name: SpellManager
+  m_Name: SpellForcePull
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5137424804847201796
+--- !u!4 &1185001631791606365
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4946228219426124503}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_GameObject: {fileID: 963183801311859086}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -32,20 +32,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7616740537239330882
+--- !u!114 &4292913310127307540
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4946228219426124503}
+  m_GameObject: {fileID: 963183801311859086}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85edb23d5f1ba86488b73cd2366e8b8f, type: 3}
+  m_Script: {fileID: 11500000, guid: bc22fd1130ead5a48b2d6f1351c830dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unlockableSpells: []
-  startingSpells:
-  - {fileID: 5429402168126993029, guid: 183243635c5adff43814632c08502517, type: 3}
-  - {fileID: 7718958992447379093, guid: 2ca395f1a353bbc479d47141f7eded84, type: 3}
-  - {fileID: 4292913310127307540, guid: 5e9806f93cccced4198f93eab8072f63, type: 3}
+  spellType: 2
+  icon: {fileID: 0}
+  cooldownLengthMs: 2
+  castRange: 30
+  hotKey: 102
+  castType: 0
+  spellTargeting: 2
+  mouseIndicatorMaterial: {fileID: 2100000, guid: f714d3fbcd5fb504381cfb02a5df91c7,
+    type: 2}

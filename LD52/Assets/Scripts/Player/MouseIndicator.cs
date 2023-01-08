@@ -47,39 +47,17 @@ public class MouseIndicator : MonoBehaviour
                 transform.position = new Vector3(mousePos.x, 0.1f, mousePos.z);
                 meshRenderer.sharedMaterial = NormalCursor;
             }
-            else
+            else if (spell.GetSpellTargetType() == SpellTargeting.TargetGroundClip)
             {
-                Physics.Raycast(player.position, mouseDir, out RaycastHit blinkHitInfo, spell.GetCastRange(), LayerMask.GetMask("Obstacles"));
-
-                if (blinkHitInfo.collider != null)
+                HandleClippingGroundTargetSpell(spell, mouseDir);
+            }
+            else if (spell.GetSpellTargetType() == SpellTargeting.TargetRaycastNoClip)
+            {
+                Physics.Raycast(mouse, out RaycastHit spellTargetHitInfo, 100, LayerMask.GetMask("DynamicObstacle"));
+                if (spellTargetHitInfo.collider != null)
                 {
-                    Vector3 cursorPos = blinkHitInfo.point - mouseDir;
-                    cursorPos = new Vector3(cursorPos.x, 0.1f, cursorPos.z);
-                    Vector2 cursorDist = Vector.Substract(blinkHitInfo.point, player.position);
-
-                    if (cursorDist.magnitude > spell.GetCastRange())
-                    {
-                        cursorPos = Vector.SetY(Vector.V2to3(cursorDist.normalized * spell.GetCastRange()) + player.position, 0.1f);
-                    }
-
-                    transform.position = cursorPos;
-                    meshRenderer.sharedMaterial = spell.GetMouseMaterial();
+                    spell.SetTargets(spellTargetHitInfo.collider.transform, player);
                 }
-                else
-                {
-                    Vector3 cursorPos = new Vector3(mousePos.x, 0.1f, mousePos.z);
-                    var cursorDist = Vector.Substract(cursorPos, player.position);
-
-                    if (cursorDist.magnitude > spell.GetCastRange())
-                    {
-                        cursorPos = Vector.SetY(Vector.V2to3(cursorDist.normalized * spell.GetCastRange()) + player.position, 0.1f);
-                    }
-
-                    transform.position = cursorPos;
-                    meshRenderer.sharedMaterial = spell.GetMouseMaterial();
-                }
-
-                spell.SetTargets(player, transform);
             }
         }
 
@@ -87,6 +65,42 @@ public class MouseIndicator : MonoBehaviour
         Vector3 lineEnd = transform.position - mouseDir * 0.75f;
         line.SetPosition(0, new Vector3(lineStart.x, 0.1f, lineStart.z));
         line.SetPosition(1, new Vector3(lineEnd.x, 0.1f, lineEnd.z));
+    }
+
+    private void HandleClippingGroundTargetSpell(CastableSpell spell, Vector3 mouseDir)
+    {
+        float raycastDistance = Mathf.Min(spell.GetCastRange(), PlayerToMouse2D().magnitude);
+        Physics.Raycast(player.position, mouseDir, out RaycastHit blinkHitInfo, raycastDistance, LayerMask.GetMask("Obstacles"));
+
+        if (blinkHitInfo.collider != null)
+        {
+            Vector3 cursorPos = blinkHitInfo.point - mouseDir;
+            cursorPos = new Vector3(cursorPos.x, 0.1f, cursorPos.z);
+            Vector2 cursorDist = Vector.Substract(blinkHitInfo.point, player.position);
+
+            if (cursorDist.magnitude > spell.GetCastRange())
+            {
+                cursorPos = Vector.SetY(Vector.V2to3(cursorDist.normalized * spell.GetCastRange()) + player.position, 0.1f);
+            }
+
+            transform.position = cursorPos;
+            meshRenderer.sharedMaterial = spell.GetMouseMaterial();
+        }
+        else
+        {
+            Vector3 cursorPos = new Vector3(mousePos.x, 0.1f, mousePos.z);
+            var cursorDist = Vector.Substract(cursorPos, player.position);
+
+            if (cursorDist.magnitude > spell.GetCastRange())
+            {
+                cursorPos = Vector.SetY(Vector.V2to3(cursorDist.normalized * spell.GetCastRange()) + player.position, 0.1f);
+            }
+
+            transform.position = cursorPos;
+            meshRenderer.sharedMaterial = spell.GetMouseMaterial();
+        }
+
+        spell.SetTargets(player, transform);
     }
 
     private void FixedUpdate()
