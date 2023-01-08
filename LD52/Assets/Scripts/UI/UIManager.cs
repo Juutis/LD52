@@ -27,6 +27,9 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private MenuScreen theEndScreen;
 
+    [SerializeField]
+    private UIEffect bloodEffect;
+
     private bool aMenuIsOpen = false;
     private void Awake()
     {
@@ -47,6 +50,11 @@ public class UIManager : MonoBehaviour
 
     [SerializeField]
     private UIHealth uiPlayerHealth;
+
+    public void ShowBloodEffect()
+    {
+        bloodEffect.Play();
+    }
 
     public void RegisterPlayerHealth(EntityHealth playerHealth)
     {
