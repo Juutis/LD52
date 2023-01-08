@@ -30,13 +30,17 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private UIEffect bloodEffect;
 
+    [SerializeField]
+    private UIBerryBar berryBar;
+
     private bool aMenuIsOpen = false;
+
     private void Awake()
     {
         main = this;
     }
 
-    public void Initialize(GameTimer timer, Difficulty difficulty)
+    public void Initialize(GameTimer timer, Difficulty difficulty, int maxBerries)
     {
         uiGameTimer.Initialize(timer);
         uiDifficultyDisplay.Initialize(difficulty);
@@ -46,10 +50,16 @@ public class UIManager : MonoBehaviour
         uiGameOverScreen.Initialize(gameOverScreen);
         uiTheEndScreen = Instantiate(uiScreenPrefab, Vector3.zero, Quaternion.identity, menuScreenContainer);
         uiTheEndScreen.Initialize(theEndScreen);
+        berryBar.Initialize(maxBerries);
     }
 
     [SerializeField]
     private UIHealth uiPlayerHealth;
+
+    public void AddBerry(int count)
+    {
+        berryBar.AddBerry(count);
+    }
 
     public void ShowBloodEffect()
     {

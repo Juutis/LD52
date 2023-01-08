@@ -43,11 +43,13 @@ public class ForcePullGather : MonoBehaviour
             if (lerpAmount >= 1)
             {
                 pulling = false;
-                for (int i = 0; i < berriesBeingPulled.Count; i++)
+                int berriesCount = berriesBeingPulled.Count;
+                for (int i = 0; i < berriesCount; i++)
                 {
                     var berry = berriesBeingPulled[i];
                     Destroy(berry.gameObject);
                 }
+                GameManager.main.AddBerry(berriesCount);
 
                 berriesBeingPulled = new List<Transform>();
                 startPositions = new List<Vector3>();

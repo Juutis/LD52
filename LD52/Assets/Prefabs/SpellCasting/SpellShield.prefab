@@ -52,7 +52,7 @@ MonoBehaviour:
   cooldownLengthMs: 1
   castRange: 10
   hotKey: 32
-  castType: 0
+  castType: 1
   spellTargeting: 4
   mouseIndicatorMaterial: {fileID: 0}
   effectContainer: {fileID: 4935046508403879252}
