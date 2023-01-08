@@ -9,9 +9,8 @@ public class ForcePullToMove : MonoBehaviour
     [SerializeField]
     private float pullSpeed;
 
-    private Vector2 startPosition;
+    private Rigidbody rbody;
     private Vector2 targetPosition;
-    private float lerpAmount = 0;
     private bool pulling = false;
 
     [SerializeField]
@@ -22,8 +21,8 @@ public class ForcePullToMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        startPosition = transform.position;
         targetPosition = transform.position;
+        rbody = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -31,13 +30,13 @@ public class ForcePullToMove : MonoBehaviour
     {
         if (pulling)
         {
-            lerpAmount += pullSpeed * Time.deltaTime;
-            transform.position = Vector.V2to3(Vector2.Lerp(startPosition, targetPosition, lerpAmount), transform.position.y);
-            rotateWheels(pullSpeed * Time.deltaTime);
+            rbody.velocity = transform.forward * -1f * dir * pullSpeed;
+            rotateWheels(rbody.velocity.magnitude * Time.deltaTime);
 
-            if (lerpAmount >= 1)
+            if ((targetPosition - Vector.V3to2(transform.position)).magnitude < 0.1f)
             {
                 pulling = false;
+                rbody.velocity = Vector3.zero;
             }
         }
     }
@@ -50,8 +49,6 @@ public class ForcePullToMove : MonoBehaviour
         Vector2 forwards = Vector.V3to2(transform.forward);
         Vector2 moveDir = forwards.normalized * (Vector2.Dot(towardsPlayer, forwards) / forwards.magnitude);
 
-        lerpAmount = 0;
-        startPosition = Vector.V3to2(transform.position);
         targetPosition = Vector.V3to2(transform.position) + moveDir.normalized * pullAmount;
         pulling = true;
         dir = Vector2.Angle(forwards, moveDir) < 10.0f ? -1.0f : 1.0f;
@@ -64,5 +61,11 @@ public class ForcePullToMove : MonoBehaviour
         {
             wheel.Rotate(Vector3.up, rotateAmount, Space.Self);
         }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        pulling = false;
+        rbody.velocity = Vector3.zero;
     }
 }
