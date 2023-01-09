@@ -9,6 +9,10 @@ public class CastableSpell : MonoBehaviour
     protected Transform spellTargetLocation;
 
     [SerializeField]
+    private Color spellColor;
+    public Color Color { get { return spellColor; } }
+
+    [SerializeField]
     private SpellType spellType = SpellType.Shield;
     [SerializeField]
     private Sprite icon;

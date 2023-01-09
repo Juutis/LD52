@@ -14,6 +14,8 @@ public class UISpell : MonoBehaviour
     [SerializeField]
     private GameObject preparedIndicator;
     [SerializeField]
+    private Image imgOverlay;
+    [SerializeField]
     private TextMeshProUGUI txtHotkey;
 
     private CastableSpell spell;
@@ -40,6 +42,7 @@ public class UISpell : MonoBehaviour
     {
         spell = castableSpell;
         imgIcon.sprite = spell.Icon;
+        imgOverlay.color = castableSpell.Color;
         txtHotkey.text = spell.HotKey.ToString();
     }
 
