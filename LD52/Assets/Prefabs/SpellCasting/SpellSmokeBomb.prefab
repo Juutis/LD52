@@ -50,7 +50,7 @@ MonoBehaviour:
   castRange: 10
   hotKey: 101
   castType: 0
-  spellTargeting: 1
+  spellTargeting: 0
   mouseIndicatorMaterial: {fileID: 2100000, guid: 963b3b3418800e34c8ed295c17051186,
     type: 2}
   mouseIndicatorSize: 2

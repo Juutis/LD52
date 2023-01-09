@@ -59,6 +59,10 @@ public class MouseIndicator : MonoBehaviour
             {
                 HandleClippingGroundTargetSpell(spell, mouseDir, mousePos);
             }
+            else if (spell.GetSpellTargetType() == SpellTargeting.TargetGroundNoClip)
+            {
+                HandleNoClippingGroundTargetSpell(spell, mouseDir, mousePos);
+            }
             else if (spell.GetSpellTargetType() == SpellTargeting.TargetRaycastNoClip)
             {
                 Physics.Raycast(mouse, out RaycastHit spellTargetHitInfo, 100, LayerMask.GetMask("DynamicObstacle"));
@@ -80,8 +84,6 @@ public class MouseIndicator : MonoBehaviour
 
     private void HandleClippingGroundTargetSpell(CastableSpell spell, Vector3 mouseDir, Vector3 mousePos)
     {
-        // Debug.Log($"{Vector.V3to2(mouseDir)}");
-
         float raycastDistance = Mathf.Min(spell.GetCastRange(), PlayerToMouse2D().magnitude);
         Physics.Raycast(player.position, mouseDir, out RaycastHit blinkHitInfo, raycastDistance, LayerMask.GetMask("Obstacles"));
 
@@ -123,15 +125,51 @@ public class MouseIndicator : MonoBehaviour
 
                 if (lastBlinkPassable.collider != null)
                 {
-                    float colliderRadius = Mathf.Max(lastBlinkPassable.collider.bounds.extents.x, lastBlinkPassable.collider.bounds.extents.z) + 0.5f;
-                    Vector3 colliderCenter = lastBlinkPassable.collider.bounds.center;
-                    cursorPos = Vector.V2to3(Vector.Substract(colliderCenter, mouseDir * colliderRadius), 0.1f);
+                    cursorPos = Vector.V2to3(Vector.Substract(lastBlinkPassable.point, mouseDir), 0.1f);
                 }
             }
 
             transform.position = cursorPos;
             meshRenderer.sharedMaterial = spell.GetMouseMaterial();
         }
+
+        spell.SetTargets(player, transform);
+    }
+
+
+    private void HandleNoClippingGroundTargetSpell(CastableSpell spell, Vector3 mouseDir, Vector3 mousePos)
+    {
+        float raycastDistance = Mathf.Min(spell.GetCastRange(), PlayerToMouse2D().magnitude);
+
+        Vector3 cursorPos = new Vector3(mousePos.x, 0.1f, mousePos.z);
+
+        var cursorDist = Vector.Substract(cursorPos, player.position);
+        if (cursorDist.magnitude > spell.GetCastRange())
+        {
+            cursorPos = Vector.SetY(Vector.V2to3(cursorDist.normalized * spell.GetCastRange()) + player.position, 0.1f);
+        }
+
+        bool hitBlinkPassable = Physics.Raycast(cursorPos + Vector3.up * 5f, Vector3.down, out RaycastHit blinkPassableHit, 5.5f, LayerMask.GetMask("BlinkPassable"));
+
+        // if mouse is on top of something that's passable by blink, but can't blink into it
+        if (hitBlinkPassable)
+        {
+            float blinkPassableRaycastDist = (cursorPos - player.position).magnitude;
+            RaycastHit lastBlinkPassable =
+                Physics.RaycastAll(player.position, mouseDir, blinkPassableRaycastDist, LayerMask.GetMask("BlinkPassable"))
+                .ToList()
+                .LastOrDefault();
+
+            if (lastBlinkPassable.collider != null)
+            {
+                float colliderRadius = Mathf.Max(lastBlinkPassable.collider.bounds.extents.x, lastBlinkPassable.collider.bounds.extents.z) + 0.5f;
+                Vector3 colliderCenter = lastBlinkPassable.collider.bounds.center;
+                cursorPos = Vector.V2to3(Vector.Substract(colliderCenter, mouseDir * colliderRadius), 0.1f);
+            }
+        }
+
+        transform.position = cursorPos;
+        meshRenderer.sharedMaterial = spell.GetMouseMaterial();
 
         spell.SetTargets(player, transform);
     }
