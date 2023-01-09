@@ -59,7 +59,11 @@ public enum GameSoundType
 {
     EatDaBerry,
     Teleport,
-    Shield
+    Shield,
+    GobboAnnoyed,
+    GobboShoot,
+    ArrowHitShield,
+    ArrowHitZarguuf
 }
 
 [System.Serializable]

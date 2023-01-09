@@ -29,6 +29,7 @@ public class SpellShieldCollider : MonoBehaviour, ParentCollider
         if (other.tag == "Projectile")
         {
             other.GetComponent<ChildCollider>().Kill();
+            SoundManager.main.PlaySound(GameSoundType.ArrowHitShield);
         }
     }
 

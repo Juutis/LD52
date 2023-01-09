@@ -71,6 +71,7 @@ public class GameManager : MonoBehaviour
     {
         currentBerryCount += count;
         UIManager.main.AddBerry(count);
+        SoundManager.main.PlaySound(GameSoundType.EatDaBerry);
     }
 
     public void PauseGame()

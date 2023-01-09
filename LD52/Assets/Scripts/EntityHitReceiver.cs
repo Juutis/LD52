@@ -35,6 +35,7 @@ public class EntityHitReceiver : MonoBehaviour, ParentCollider
             Projectile projectile = other.gameObject.GetComponent<Projectile>();
 
             entityHealth.Modify(-projectile.Damage);
+            SoundManager.main.PlaySound(GameSoundType.ArrowHitZarguuf);
         }
     }
 }

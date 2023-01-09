@@ -60,7 +60,8 @@ public class EnemyMovement : MonoBehaviour
             return;
         }
 
-        switch (state) {
+        switch (state)
+        {
             case EnemyState.IDLE:
                 handleIdle();
                 break;
@@ -94,7 +95,7 @@ public class EnemyMovement : MonoBehaviour
     private void handleIdle()
     {
         isInAttackRange = false;
-        if (canSeePlayer()) 
+        if (canSeePlayer())
         {
             state = EnemyState.ATTACK;
         }
@@ -127,7 +128,7 @@ public class EnemyMovement : MonoBehaviour
     private void handlePatrol()
     {
         isInAttackRange = false;
-        if (canSeePlayer()) 
+        if (canSeePlayer())
         {
             state = EnemyState.ATTACK;
         }
@@ -163,7 +164,7 @@ public class EnemyMovement : MonoBehaviour
                 agent.SetDestination(player.position);
                 goblinAnimator.SetWalking(true);
             }
-            else 
+            else
             {
                 agent.isStopped = true;
                 goblinAnimator.SetWalking(false);
@@ -174,6 +175,10 @@ public class EnemyMovement : MonoBehaviour
         }
         else
         {
+            if (state != EnemyState.CHASE)
+            {
+                SoundManager.main.PlaySound(GameSoundType.GobboAnnoyed);
+            }
             state = EnemyState.CHASE;
         }
     }
@@ -181,7 +186,7 @@ public class EnemyMovement : MonoBehaviour
     private void handleChase()
     {
         isInAttackRange = false;
-        if (canSeePlayer()) 
+        if (canSeePlayer())
         {
             state = EnemyState.ATTACK;
         }
@@ -200,7 +205,7 @@ public class EnemyMovement : MonoBehaviour
             agent.SetDestination(LastPlayerPosition);
             goblinAnimator.SetWalking(true);
         }
-        else 
+        else
         {
             agent.isStopped = true;
             goblinAnimator.SetWalking(false);
@@ -219,7 +224,7 @@ public class EnemyMovement : MonoBehaviour
     private void handleSearch()
     {
         isInAttackRange = false;
-        if (canSeePlayer()) 
+        if (canSeePlayer())
         {
             state = EnemyState.ATTACK;
         }
@@ -316,7 +321,8 @@ public class EnemyMovement : MonoBehaviour
     }
 }
 
-enum EnemyState {
+enum EnemyState
+{
     IDLE,
     PATROL,
     ATTACK,
