@@ -2393,6 +2393,37 @@ MonoBehaviour:
   m_ChildScaleWidth: 1
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!1 &6600395407862786281
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6538139353923392589}
+  m_Layer: 0
+  m_Name: PoppingTextContainer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6538139353923392589
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6600395407862786281}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8952091386802186176}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6878384857471244243
 GameObject:
   m_ObjectHideFlags: 0
@@ -3018,6 +3049,7 @@ Transform:
   m_Children:
   - {fileID: 5808949689323628163}
   - {fileID: 2665472562395814930}
+  - {fileID: 6538139353923392589}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3038,6 +3070,9 @@ MonoBehaviour:
   uiScreenPrefab: {fileID: 5493976819671157839, guid: 475ba69dfd79f6949887201655dcab06,
     type: 3}
   menuScreenContainer: {fileID: 3285930627988053721}
+  poppingTextContainer: {fileID: 6538139353923392589}
+  poppingTextPrefab: {fileID: 1487465590798264898, guid: 953070d79eec10146a47f9e4371c475f,
+    type: 3}
   pauseScreen:
     title: Paused
     description: Take a deep breath.

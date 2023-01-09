@@ -50,6 +50,7 @@ public class ForcePullGather : MonoBehaviour
                     Destroy(berry.gameObject);
                 }
                 GameManager.main.AddBerry(berriesCount);
+                UIManager.main.ShowPoppingText(targetPosition, $"+{berriesCount}", Color.magenta);
 
                 berriesBeingPulled = new List<Transform>();
                 startPositions = new List<Vector3>();

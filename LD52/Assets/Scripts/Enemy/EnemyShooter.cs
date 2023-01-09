@@ -30,9 +30,10 @@ public class EnemyShooter : MonoBehaviour, GameRhythmSubscriber
 
     }
 
-    public void StartShootAnimation() 
+    public void StartShootAnimation()
     {
         goblinAnimator.Shoot();
+        SoundManager.main.PlaySound(GameSoundType.GobboShoot);
     }
 
     public void Shoot()

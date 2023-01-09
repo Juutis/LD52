@@ -7,6 +7,9 @@ public class Gate : MonoBehaviour
     [SerializeField]
     private bool debugOpen;
 
+    [SerializeField]
+    private BoxCollider gateCollider;
+
     private Animator anim;
 
     // Start is called before the first frame update
@@ -26,6 +29,7 @@ public class Gate : MonoBehaviour
 
     public void Open()
     {
+        gateCollider.enabled = false;
         anim.SetTrigger("Open");
     }
 }
