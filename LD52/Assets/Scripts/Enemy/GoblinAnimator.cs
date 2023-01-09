@@ -71,4 +71,9 @@ public class GoblinAnimator : MonoBehaviour
         arrowInWeapon.SetActive(true);
         arrowInHand.SetActive(false);
     }
+
+    public void Stunned(bool isStunned)
+    {
+        anim.SetBool("Stunned", isStunned);
+    }
 }
