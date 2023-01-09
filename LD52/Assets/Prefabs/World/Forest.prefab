@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1820378663316953733}
   - component: {fileID: 499958208159936691}
+  - component: {fileID: 5998446247709874692}
   m_Layer: 6
   m_Name: Forest
   m_TagString: Untagged
@@ -88,8 +89,24 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 8.867615, y: 1, z: 8.882324}
-  m_Center: {x: -0.45695615, y: 0, z: 0.23040104}
+  m_Size: {x: 8.867615, y: 7.5073195, z: 8.882324}
+  m_Center: {x: -0.4569559, y: 0.26271677, z: 0.23040104}
+--- !u!208 &5998446247709874692
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7446377050685694199}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 4.4338074, y: 3.7536595, z: 4.441162}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: -0.4569559, y: 0.26271677, z: 0.23040104}
+  m_TimeToStationary: 0.5
 --- !u!1001 &411813610022287779
 PrefabInstance:
   m_ObjectHideFlags: 0

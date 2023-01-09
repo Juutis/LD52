@@ -112,8 +112,8 @@ public class EnemyMovement : MonoBehaviour
             agent.isStopped = true;
             goblinAnimator.SetWalking(false);
 
-            var deltaAngle = Quaternion.Angle(transform.localRotation, startingRotation);
-            transform.localRotation = Quaternion.RotateTowards(transform.localRotation, startingRotation, Mathf.Min(deltaAngle, config.TurnRate * Time.deltaTime));
+            var deltaAngle = Quaternion.Angle(transform.rotation, startingRotation);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, startingRotation, Mathf.Min(deltaAngle, config.TurnRate * Time.deltaTime));
         }
     }
 
@@ -144,8 +144,8 @@ public class EnemyMovement : MonoBehaviour
 
             // rotate towards player
             var targetRotation = Quaternion.LookRotation(EnemyToPlayerDir(), transform.up);
-            var deltaAngle = Quaternion.Angle(transform.localRotation, targetRotation);
-            transform.localRotation = Quaternion.RotateTowards(transform.localRotation, targetRotation, Mathf.Min(deltaAngle, config.TurnRate * Time.deltaTime));
+            var deltaAngle = Quaternion.Angle(transform.rotation, targetRotation);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, Mathf.Min(deltaAngle, config.TurnRate * Time.deltaTime));
 
             float angle = Vector3.Angle(EnemyToPlayerDir(), transform.forward);
 
@@ -195,8 +195,8 @@ public class EnemyMovement : MonoBehaviour
         if (targetDir.magnitude > 0.01f)
         {
             var targetRotation = Quaternion.LookRotation(targetDir.normalized, transform.up);
-            var deltaAngle = Quaternion.Angle(transform.localRotation, targetRotation);
-            transform.localRotation = Quaternion.RotateTowards(transform.localRotation, targetRotation, Mathf.Min(deltaAngle, config.TurnRate * Time.deltaTime));
+            var deltaAngle = Quaternion.Angle(transform.rotation, targetRotation);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, Mathf.Min(deltaAngle, config.TurnRate * Time.deltaTime));
         }
 
         if (isReadyToMove())
