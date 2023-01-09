@@ -88,7 +88,7 @@ public class GameManager : MonoBehaviour
     public void RestartGame()
     {
         Unpause();
-        SceneManager.LoadScene(1);
+        LevelManager.main.Restart();
     }
 
     public void GameOver()

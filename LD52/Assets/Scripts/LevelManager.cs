@@ -23,12 +23,19 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    int levelIndex = 0;
+    int nextLevelIndex = 0;
+    int currentLevelIndex = 0;
     void Start()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
-        levelIndex = 0;
+        nextLevelIndex = 0;
         Debug.Log("Start levelmanager");
+    }
+
+    public void Restart()
+    {
+        string sceneToLoad = scenes[currentLevelIndex].scenePath;
+        SceneManager.LoadScene(sceneToLoad);
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -38,27 +45,27 @@ public class LevelManager : MonoBehaviour
 
     public void StartGame()
     {
-        levelIndex = 0;
+        nextLevelIndex = 0;
         NextLevel();
     }
 
     public void NextLevel()
     {
-
         if (IsLastLevel())
         {
             Debug.Log("Cant load next level!");
             return;
         }
-        string sceneToLoad = scenes[levelIndex].scenePath;
-        levelIndex += 1;
+        currentLevelIndex = nextLevelIndex;
+        string sceneToLoad = scenes[nextLevelIndex].scenePath;
+        nextLevelIndex += 1;
         SceneManager.LoadScene(sceneToLoad);
         Time.timeScale = 1f;
     }
 
     public bool IsLastLevel()
     {
-        return levelIndex >= scenes.Count;
+        return nextLevelIndex >= scenes.Count;
     }
 
     void Update()
