@@ -126,8 +126,11 @@ public class CastableSpellManager : MonoBehaviour
         CastableSpell preparedSpell = DetermineCurrentSpell();
         if (preparedSpell != null && Input.GetMouseButtonDown(0))
         {
-            preparedSpell.Cast();
-            preparedSpell.Unprepare();
+            SpellCastResult result = preparedSpell.Cast();
+            if (result == SpellCastResult.Success)
+            {
+                preparedSpell.Unprepare();
+            }
         }
         if (Input.GetMouseButtonDown(1))
         {

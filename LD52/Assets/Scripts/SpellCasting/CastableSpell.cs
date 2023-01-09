@@ -68,11 +68,6 @@ public class CastableSpell : MonoBehaviour
 
     public SpellCastResult Prepare()
     {
-        if (IsOnCooldown)
-        {
-            //Debug.Log($"[CastableSpell]: Spell '{spellType}' is on cooldown! ({CooldownLeft}ms left)");
-            return SpellCastResult.OnCooldown;
-        }
         if (IsBeingCast)
         {
             //Debug.Log($"[CastableSpell]: Spell '{spellType}' is already being cast!");
