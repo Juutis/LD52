@@ -12,7 +12,7 @@ public class CastableSpellManager : MonoBehaviour
     private List<CastableSpell> usableSpells = new List<CastableSpell>();
 
     public static CastableSpellManager main;
-    
+
     private void Awake()
     {
         main = this;
@@ -40,6 +40,7 @@ public class CastableSpellManager : MonoBehaviour
             return;
         }
         MakeSpellUsable(spell);
+        UIManager.main.ShowSpellUnlock(spell);
     }
 
     public IEnumerable<CastableSpell> GetPreparedSpells()
@@ -77,7 +78,8 @@ public class CastableSpellManager : MonoBehaviour
 
     void Update()
     {
-        if (GameManager.main.Paused) {
+        if (GameManager.main.Paused)
+        {
             return;
         }
         CastSpells();

@@ -24,8 +24,13 @@ public class EntityHitReceiver : MonoBehaviour, ParentCollider
     }
     public void OnTriggerEnter(Collider other)
     {
-        //Debug.Log($"[EntityHitReceiver]: TriggerEnter '{other.name}'");
-
+        Debug.Log($"[EntityHitReceiver]: TriggerEnter '{other.name}'");
+        if (other.gameObject.tag == "Unlock")
+        {
+            UnlockPickup pickup = other.gameObject.GetComponentInParent<UnlockPickup>();
+            CastableSpellManager.main.UnlockSpell(pickup.Spell);
+            pickup.Kill();
+        }
     }
     public void OnCollisionEnter(Collision other)
     {

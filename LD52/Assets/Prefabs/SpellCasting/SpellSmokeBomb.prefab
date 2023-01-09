@@ -44,8 +44,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6f0fc44ccdcc88479699800f7307d75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spellType: 0
-  icon: {fileID: 0}
+  spellType: 3
+  icon: {fileID: 21300000, guid: bc3b93dfbb72fef4db83ed72313fcadd, type: 3}
+  unlockMessage: Use key E to throw it!
+  unlockTitle: Smoke bomb unlocked!
   cooldownLengthMs: 2
   castRange: 10
   hotKey: 101

@@ -45,7 +45,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spellType: 2
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 254e21ba17eaba5468b99f2e3a1d481d, type: 3}
+  unlockMessage: Hold the F key to show pullable items, release it to pull!
+  unlockTitle: Pull spell unlocked!
   cooldownLengthMs: 2
   castRange: 30
   hotKey: 102
@@ -53,3 +55,4 @@ MonoBehaviour:
   spellTargeting: 2
   mouseIndicatorMaterial: {fileID: 2100000, guid: f714d3fbcd5fb504381cfb02a5df91c7,
     type: 2}
+  mouseIndicatorSize: 1
