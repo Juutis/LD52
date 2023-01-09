@@ -3102,6 +3102,13 @@ MonoBehaviour:
       action: 0
     - title: Main Menu
       action: 1
+  spellUnlockScreen:
+    title: New spell
+    description: Magic!
+    background: {fileID: 21300000, guid: 3d3b019e3ccdd4947b96d1e1728a268d, type: 3}
+    buttons:
+    - title: Continue
+      action: 2
   bloodEffect: {fileID: 5381447122396235774}
   berryBar: {fileID: 4627908949736750735}
   uiPlayerHealth: {fileID: 5651831681695499067}

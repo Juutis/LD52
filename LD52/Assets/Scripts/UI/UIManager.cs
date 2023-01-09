@@ -25,12 +25,15 @@ public class UIManager : MonoBehaviour
     private PoppingText poppingTextPrefab;
 
     private UIMenuScreen uiTheEndScreen;
+    private UIMenuScreen uiSpellUnlockScreen;
     [SerializeField]
     private MenuScreen pauseScreen;
     [SerializeField]
     private MenuScreen gameOverScreen;
     [SerializeField]
     private MenuScreen theEndScreen;
+    [SerializeField]
+    private MenuScreen spellUnlockScreen;
 
     [SerializeField]
     private UIEffect bloodEffect;
@@ -62,6 +65,13 @@ public class UIManager : MonoBehaviour
         uiTheEndScreen = Instantiate(uiScreenPrefab, Vector3.zero, Quaternion.identity, menuScreenContainer);
         uiTheEndScreen.Initialize(theEndScreen);
         berryBar.Initialize(maxBerries);
+    }
+
+    public void ShowSpellUnlock(CastableSpell spell)
+    {
+        uiSpellUnlockScreen = Instantiate(uiScreenPrefab, Vector3.zero, Quaternion.identity, menuScreenContainer);
+        uiSpellUnlockScreen.Initialize(spellUnlockScreen);
+        uiSpellUnlockScreen.Open(spell.UnlockTitle, spell.UnlockMessage, spell.Icon, false);
     }
 
     [SerializeField]

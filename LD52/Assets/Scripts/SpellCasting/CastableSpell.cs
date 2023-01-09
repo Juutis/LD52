@@ -12,6 +12,13 @@ public class CastableSpell : MonoBehaviour
     private SpellType spellType = SpellType.Shield;
     [SerializeField]
     private Sprite icon;
+
+    [SerializeField, TextArea]
+    private string unlockMessage;
+    public string UnlockMessage { get { return unlockMessage; } }
+    [SerializeField]
+    private string unlockTitle;
+    public string UnlockTitle { get { return unlockTitle; } }
     [SerializeField]
     private float cooldownLengthMs = 1f;
     [SerializeField]
@@ -138,7 +145,8 @@ public enum SpellType
 {
     Shield,
     Teleport,
-    Pull
+    Pull,
+    Bomb
 }
 public enum SpellCastResult
 {

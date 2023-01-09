@@ -46,6 +46,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellType: 1
   icon: {fileID: 21300000, guid: 07d82e348678cf845ac491f7de198904, type: 3}
+  unlockMessage: Left click on a spot to teleport!
+  unlockTitle: Teleport spell unlocked!
   cooldownLengthMs: 2
   castRange: 15
   hotKey: 323
@@ -53,3 +55,4 @@ MonoBehaviour:
   spellTargeting: 1
   mouseIndicatorMaterial: {fileID: 2100000, guid: d61dfb25f5566b448a9284aa3485ad15,
     type: 2}
+  mouseIndicatorSize: 1
