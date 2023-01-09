@@ -1199,6 +1199,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1878661729433717361, guid: 5e1ac16aed2a82d428c5d0f78c5bc248,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 1878661729620917573, guid: 5e1ac16aed2a82d428c5d0f78c5bc248,
         type: 3}
       propertyPath: m_IsActive
@@ -1279,36 +1284,21 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -6
       objectReference: {fileID: 0}
-    - target: {fileID: 3157295110110750544, guid: 5e1ac16aed2a82d428c5d0f78c5bc248,
+    - target: {fileID: 2758707997095576766, guid: 5e1ac16aed2a82d428c5d0f78c5bc248,
         type: 3}
-      propertyPath: m_AABB.m_Center.x
-      value: NaN
-      objectReference: {fileID: 0}
-    - target: {fileID: 3157295110110750544, guid: 5e1ac16aed2a82d428c5d0f78c5bc248,
+      propertyPath: entityHealth
+      value: 
+      objectReference: {fileID: 6431607508710238811}
+    - target: {fileID: 2758707997095576766, guid: 5e1ac16aed2a82d428c5d0f78c5bc248,
         type: 3}
-      propertyPath: m_AABB.m_Center.y
-      value: NaN
-      objectReference: {fileID: 0}
-    - target: {fileID: 3157295110110750544, guid: 5e1ac16aed2a82d428c5d0f78c5bc248,
+      propertyPath: childCollider
+      value: 
+      objectReference: {fileID: 5519896058515475874}
+    - target: {fileID: 2758707997095576766, guid: 5e1ac16aed2a82d428c5d0f78c5bc248,
         type: 3}
-      propertyPath: m_AABB.m_Center.z
-      value: NaN
-      objectReference: {fileID: 0}
-    - target: {fileID: 3157295110110750544, guid: 5e1ac16aed2a82d428c5d0f78c5bc248,
-        type: 3}
-      propertyPath: m_AABB.m_Extent.x
-      value: NaN
-      objectReference: {fileID: 0}
-    - target: {fileID: 3157295110110750544, guid: 5e1ac16aed2a82d428c5d0f78c5bc248,
-        type: 3}
-      propertyPath: m_AABB.m_Extent.y
-      value: NaN
-      objectReference: {fileID: 0}
-    - target: {fileID: 3157295110110750544, guid: 5e1ac16aed2a82d428c5d0f78c5bc248,
-        type: 3}
-      propertyPath: m_AABB.m_Extent.z
-      value: NaN
-      objectReference: {fileID: 0}
+      propertyPath: enemyAimTarget
+      value: 
+      objectReference: {fileID: 5965832679459887734}
     - target: {fileID: 3233178532962337180, guid: 5e1ac16aed2a82d428c5d0f78c5bc248,
         type: 3}
       propertyPath: m_UseGravity
@@ -1387,7 +1377,7 @@ PrefabInstance:
     - target: {fileID: 8494408174425791691, guid: 5e1ac16aed2a82d428c5d0f78c5bc248,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 10
+      value: 10.1
       objectReference: {fileID: 0}
     - target: {fileID: 8494408174425791691, guid: 5e1ac16aed2a82d428c5d0f78c5bc248,
         type: 3}
@@ -1424,6 +1414,24 @@ Rigidbody:
     type: 3}
   m_PrefabInstance: {fileID: 7255006346626743061}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5519896058515475874 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2897056928293254839, guid: 5e1ac16aed2a82d428c5d0f78c5bc248,
+    type: 3}
+  m_PrefabInstance: {fileID: 7255006346626743061}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac6e08f17fe46df499db0ea5c2eeccdb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &5965832679459887734 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3919276146444444003, guid: 5e1ac16aed2a82d428c5d0f78c5bc248,
+    type: 3}
+  m_PrefabInstance: {fileID: 7255006346626743061}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &6083994160480258697 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3512884268132872604, guid: 5e1ac16aed2a82d428c5d0f78c5bc248,
@@ -1442,7 +1450,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 3.274181e-11, y: 1.9886755, z: -0.0000016763809}
+  m_ConnectedAnchor: {x: -1.114131e-10, y: 1.9886762, z: 0.0000030547385}
   serializedVersion: 3
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
