@@ -24,6 +24,7 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private PoppingText poppingTextPrefab;
 
+    private UIMenuScreen uiNextLevelScreen;
     private UIMenuScreen uiTheEndScreen;
     private UIMenuScreen uiSpellUnlockScreen;
     [SerializeField]
@@ -32,6 +33,8 @@ public class UIManager : MonoBehaviour
     private MenuScreen gameOverScreen;
     [SerializeField]
     private MenuScreen theEndScreen;
+    [SerializeField]
+    private MenuScreen nextLevelScreen;
     [SerializeField]
     private MenuScreen spellUnlockScreen;
 
@@ -64,6 +67,8 @@ public class UIManager : MonoBehaviour
         uiGameOverScreen.Initialize(gameOverScreen);
         uiTheEndScreen = Instantiate(uiScreenPrefab, Vector3.zero, Quaternion.identity, menuScreenContainer);
         uiTheEndScreen.Initialize(theEndScreen);
+        uiNextLevelScreen = Instantiate(uiScreenPrefab, Vector3.zero, Quaternion.identity, menuScreenContainer);
+        uiNextLevelScreen.Initialize(nextLevelScreen);
         berryBar.Initialize(maxBerries);
     }
 
@@ -105,6 +110,10 @@ public class UIManager : MonoBehaviour
     public void OpenTheEndMenu()
     {
         uiTheEndScreen.Open();
+    }
+    public void OpenNextLevelMenu()
+    {
+        uiNextLevelScreen.Open();
     }
 
     private void CheckMenus()

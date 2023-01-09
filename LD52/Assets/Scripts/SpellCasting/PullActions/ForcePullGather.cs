@@ -70,6 +70,7 @@ public class ForcePullGather : MonoBehaviour
                 startPositions.Add(berry.position);
                 pulling = true;
                 lerpAmount = 0;
+                SoundManager.main.PlaySound(GameSoundType.PullBerry);
             }
         }
     }
