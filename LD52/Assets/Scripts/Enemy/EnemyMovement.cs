@@ -19,6 +19,8 @@ public class EnemyMovement : MonoBehaviour
     private List<Transform> patrolPoints;
     [SerializeField]
     private bool patrolPingPong;
+    [SerializeField]
+    private bool startPatrol;
     private Transform? currentPatrolTarget;
     private int patrolDirection = 1;
 
@@ -57,7 +59,8 @@ public class EnemyMovement : MonoBehaviour
         agent.acceleration = 100.0f;
         goblinAnimator = GetComponentInChildren<GoblinAnimator>();
         obstaclesMask = LayerMask.GetMask("Obstacles");
-        startingState = state;
+        startingState = startPatrol ? EnemyState.PATROL : state;
+        state = startingState;
         startingPosition = transform.position;
         startingRotation = transform.rotation;
     }
@@ -162,13 +165,14 @@ public class EnemyMovement : MonoBehaviour
 
         if (Vector3.Distance(transform.position, currentPatrolTarget.position) > 0.1f)
         {
-
+            Debug.Log("Moving towards target");
             agent.SetDestination(currentPatrolTarget.position);
             agent.isStopped = false;
             goblinAnimator.SetWalking(true);
         }
         else
         {
+            Debug.Log($"Acquiring new patrol target after {currentPatrolTarget.name}");
             int patrolIndex = patrolPoints.IndexOf(currentPatrolTarget);
 
             if (patrolPingPong)
