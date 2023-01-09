@@ -65,13 +65,21 @@ public class MouseIndicator : MonoBehaviour
             }
             else if (spell.GetSpellTargetType() == SpellTargeting.TargetRaycastNoClip)
             {
-                Physics.Raycast(mouse, out RaycastHit spellTargetHitInfo, 100, LayerMask.GetMask("DynamicObstacle"));
+                Vector3 cursorPos = new Vector3(mousePos.x, 0.1f, mousePos.z);
+
+                var cursorDist = Vector.Substract(cursorPos, player.position);
+                if (cursorDist.magnitude > spell.GetCastRange())
+                {
+                    cursorPos = Vector.SetY(Vector.V2to3(cursorDist.normalized * spell.GetCastRange()) + player.position, 0.1f);
+                }
+
+                Physics.Raycast(cursorPos + Vector3.up * 20f, Vector3.down, out RaycastHit spellTargetHitInfo, 100, LayerMask.GetMask("DynamicObstacle"));
                 if (spellTargetHitInfo.collider != null)
                 {
                     spell.SetTargets(spellTargetHitInfo.collider.transform, player);
                 }
 
-                transform.position = new Vector3(mousePos.x, 0.1f, mousePos.z);
+                transform.position = new Vector3(cursorPos.x, 0.1f, cursorPos.z);
                 meshRenderer.sharedMaterial = spell.GetMouseMaterial();
             }
         }
