@@ -22,6 +22,7 @@ public class SpellSmokeBomb : CastableSpell
 
     public override void PerformSpellEffect()
     {
+        SoundManager.main.PlaySound(GameSoundType.SpellBombThrow);
         ZarguufAnimator.main.Cast();
         base.PerformSpellEffect();
         Debug.Log($"Perform SmokeBomb");

@@ -68,7 +68,9 @@ public enum GameSoundType
     PullBerry,
     SpellFizzle,
     SpellPull,
-    SpellOnCooldown
+    SpellOnCooldown,
+    SpellBombThrow,
+    SpellBombHit
 }
 
 [System.Serializable]

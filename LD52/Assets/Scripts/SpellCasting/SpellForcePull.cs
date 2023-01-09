@@ -46,9 +46,6 @@ public class SpellForcePull : CastableSpell
         {
             Debug.Log("playFizzle");
             SoundManager.main.PlaySound(GameSoundType.SpellFizzle);
-        }
-        else
-        {
             IsOnCooldown = false;
         }
     }

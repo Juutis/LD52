@@ -16,7 +16,7 @@ public class SmokeBomb : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -38,6 +38,7 @@ public class SmokeBomb : MonoBehaviour
 
         particles.transform.parent = null;
         particles.Play();
+        SoundManager.main.PlaySound(GameSoundType.SpellBombHit);
         Destroy(gameObject);
     }
 
