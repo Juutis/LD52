@@ -74,7 +74,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8af7ce6ca95849498c1d4eae3e8dbf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1
+  explosionRadius: 2
   particles: {fileID: 6633131234749262786}
 --- !u!1 &8864051469456867485
 GameObject:
