@@ -134,11 +134,13 @@ public class EnemyMovement : MonoBehaviour
 
     private void handleStunned()
     {
+        goblinAnimator.Stunned(true);
         if (Time.time - stunnedStarted > stunDuration)
         {
             state = EnemyState.SEARCH;
             stunParticles.Stop();
             stunParticles.gameObject.SetActive(false);
+            goblinAnimator.Stunned(false);
         }
     }
 
