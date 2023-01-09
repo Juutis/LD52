@@ -18,7 +18,7 @@ MonoBehaviour:
     health: 100
   - type: 1
     color: {r: 0.24049078, g: 0.6625767, b: 0.8, a: 1}
-    health: 50
+    health: 20
   - type: 2
     color: {r: 0.8, g: 0.5935686, b: 0.24000001, a: 1}
     health: 10

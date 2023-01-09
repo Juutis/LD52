@@ -17,7 +17,7 @@ public class DifficultyScriptableObject : ScriptableObject
     {
         get
         {
-            DifficultyType difficultyType = (DifficultyType)PlayerPrefs.GetInt("difficulty", 0);
+            DifficultyType difficultyType = (DifficultyType)PlayerPrefs.GetInt("difficulty", 1);
             return Get(difficultyType);
         }
     }
