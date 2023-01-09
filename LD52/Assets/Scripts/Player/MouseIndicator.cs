@@ -73,7 +73,8 @@ public class MouseIndicator : MonoBehaviour
                     cursorPos = Vector.SetY(Vector.V2to3(cursorDist.normalized * spell.GetCastRange()) + player.position, 0.1f);
                 }
 
-                Physics.Raycast(cursorPos + Vector3.up * 20f, Vector3.down, out RaycastHit spellTargetHitInfo, 100, LayerMask.GetMask("DynamicObstacle"));
+                int layerMask = LayerMask.GetMask("DynamicObstacle") | LayerMask.GetMask("NonBlinkPassableDynamicObstacle");
+                Physics.Raycast(cursorPos + Vector3.up * 20f, Vector3.down, out RaycastHit spellTargetHitInfo, 100, layerMask);
                 if (spellTargetHitInfo.collider != null)
                 {
                     spell.SetTargets(spellTargetHitInfo.collider.transform, player);
@@ -93,7 +94,9 @@ public class MouseIndicator : MonoBehaviour
     private void HandleClippingGroundTargetSpell(CastableSpell spell, Vector3 mouseDir, Vector3 mousePos)
     {
         float raycastDistance = Mathf.Min(spell.GetCastRange(), PlayerToMouse2D().magnitude);
-        Physics.Raycast(player.position, mouseDir, out RaycastHit blinkHitInfo, raycastDistance, LayerMask.GetMask("Obstacles"));
+
+        int layerMask = LayerMask.GetMask("Obstacles") | LayerMask.GetMask("NonBlinkPassableDynamicObstacle");
+        Physics.Raycast(player.position, mouseDir, out RaycastHit blinkHitInfo, raycastDistance, layerMask);
 
         if (blinkHitInfo.collider != null)
         {
