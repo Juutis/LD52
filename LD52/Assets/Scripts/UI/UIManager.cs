@@ -19,6 +19,11 @@ public class UIManager : MonoBehaviour
 
     private UIMenuScreen uiGameOverScreen;
 
+    [SerializeField]
+    private Transform poppingTextContainer;
+    [SerializeField]
+    private PoppingText poppingTextPrefab;
+
     private UIMenuScreen uiTheEndScreen;
     [SerializeField]
     private MenuScreen pauseScreen;
@@ -38,6 +43,12 @@ public class UIManager : MonoBehaviour
     private void Awake()
     {
         main = this;
+    }
+
+    public void ShowPoppingText(Vector3 position, string message, Color color, int fontSize = 8)
+    {
+        PoppingText pop = Instantiate(poppingTextPrefab, position, Quaternion.identity, poppingTextContainer);
+        pop.Show(position, message, color, fontSize);
     }
 
     public void Initialize(GameTimer timer, Difficulty difficulty, int maxBerries)

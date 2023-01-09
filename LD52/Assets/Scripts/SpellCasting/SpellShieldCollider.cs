@@ -30,6 +30,7 @@ public class SpellShieldCollider : MonoBehaviour, ParentCollider
         {
             other.GetComponent<ChildCollider>().Kill();
             SoundManager.main.PlaySound(GameSoundType.ArrowHitShield);
+            UIManager.main.ShowPoppingText(transform.position, $"*blocked*", Color.yellow, 6);
         }
     }
 

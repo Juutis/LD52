@@ -52,21 +52,6 @@ public class GameManager : MonoBehaviour
     }
 
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            AddBerry(1);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha6))
-        {
-            AddBerry(6);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha4))
-        {
-            AddBerry(4);
-        }
-    }
     public void AddBerry(int count)
     {
         currentBerryCount += count;
