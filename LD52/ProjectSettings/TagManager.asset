@@ -9,7 +9,6 @@ TagManager:
   - Ground
   - Unlock
   - Checkpoint
-  - LevelManager
   layers:
   - Default
   - TransparentFX
@@ -23,7 +22,7 @@ TagManager:
   - DynamicObstacle
   - BlinkPassable
   - Enemy
-  - 
+  - NonBlinkPassableDynamicObstacle
   - 
   - 
   - 
