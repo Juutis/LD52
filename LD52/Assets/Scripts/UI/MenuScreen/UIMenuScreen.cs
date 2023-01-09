@@ -38,6 +38,8 @@ public class UIMenuScreen : MonoBehaviour
 
     private bool initialized = false;
 
+    private bool respawn = false;
+
     [SerializeField]
     private Animator animator;
 
@@ -74,6 +76,11 @@ public class UIMenuScreen : MonoBehaviour
         {
             Close();
         }
+        if (action == MenuButtonAction.Respawn)
+        {
+            respawn = true;
+            Close();
+        }
     }
 
     public void Open(string title = "", string description = "", Sprite icon = null, bool showDifficulty = true)
@@ -99,7 +106,15 @@ public class UIMenuScreen : MonoBehaviour
     public void CloseFinished()
     {
         UIManager.main.MenuWasClosed();
-        GameManager.main.ResumeGame();
+        if (respawn)
+        {
+            respawn = false;
+            GameManager.main.RespawnAtCheckpoint();
+        }
+        else
+        {
+            GameManager.main.ResumeGame();
+        }
     }
     private void Close()
     {
@@ -111,7 +126,8 @@ public enum MenuButtonAction
 {
     Restart,
     MainMenu,
-    Continue
+    Continue,
+    Respawn
 }
 
 [System.Serializable]

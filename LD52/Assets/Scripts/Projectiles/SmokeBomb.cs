@@ -22,22 +22,23 @@ public class SmokeBomb : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Vector.Substract(transform.position, target).magnitude < 0.5f)
-        {
-            RaycastHit[] hits = Physics.SphereCastAll(transform.position + Vector3.up * 3f, explosionRadius, Vector3.down, 4f, LayerMask.GetMask("Enemy"));
-            Debug.Log($"Raycast hit {hits.Length}");
-            foreach(RaycastHit hit in hits)
-            {
-                if (hit.collider != null && hit.collider.gameObject.TryGetComponent(out EnemyMovement enemy))
-                {
-                    enemy.SetStunned();
-                }
-            }
+    }
 
-            particles.transform.parent = null;
-            particles.Play();
-            Destroy(gameObject);
+    public void Explode()
+    {
+        RaycastHit[] hits = Physics.SphereCastAll(transform.position + Vector3.up * 3f, explosionRadius, Vector3.down, 4f, LayerMask.GetMask("Enemy"));
+        Debug.Log($"Raycast hit {hits.Length}");
+        foreach (RaycastHit hit in hits)
+        {
+            if (hit.collider != null && hit.collider.gameObject.TryGetComponent(out EnemyMovement enemy))
+            {
+                enemy.SetStunned();
+            }
         }
+
+        particles.transform.parent = null;
+        particles.Play();
+        Destroy(gameObject);
     }
 
     public void SetTarget(Vector3 target)

@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class EntityHealth : MonoBehaviour
 {
+    public static EntityHealth player;
+    void Awake()
+    {
+        if (tag == "Player")
+        {
+            player = this;
+        }
+    }
     public int Max { get; private set; }
     public int Current { get; private set; }
     public bool Depleted { get { return Current <= 0; } }
@@ -13,15 +21,16 @@ public class EntityHealth : MonoBehaviour
     {
         if (tag == "Player")
         {
-            Initialize(GameManager.main.Difficulty.Health);
-            UIManager.main.RegisterPlayerHealth(this);
+            Initialize();
         }
     }
 
-    public void Initialize(int max)
+
+    public void Initialize()
     {
-        Max = max;
-        Current = max;
+        Max = GameManager.main.Difficulty.Health;
+        Current = Max;
+        UIManager.main.RegisterPlayerHealth(this);
     }
     public void Modify(int change)
     {

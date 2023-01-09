@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
 using TreeEditor;
 using UnityEngine;
 using UnityEngine.AI;
@@ -11,6 +13,16 @@ public class EnemyMovement : MonoBehaviour
 
     [SerializeField]
     private EnemyConfigScriptableObject config;
+    [SerializeField]
+    private ParticleSystem stunParticles;
+    [SerializeField]
+    private List<Transform> patrolPoints;
+    [SerializeField]
+    private bool patrolPingPong;
+    [SerializeField]
+    private bool startPatrol;
+    private Transform? currentPatrolTarget;
+    private int patrolDirection = 1;
 
     private NavMeshAgent agent;
     private float playerLastSeen;
@@ -47,7 +59,8 @@ public class EnemyMovement : MonoBehaviour
         agent.acceleration = 100.0f;
         goblinAnimator = GetComponentInChildren<GoblinAnimator>();
         obstaclesMask = LayerMask.GetMask("Obstacles");
-        startingState = state;
+        startingState = startPatrol ? EnemyState.PATROL : state;
+        state = startingState;
         startingPosition = transform.position;
         startingRotation = transform.rotation;
     }
@@ -90,6 +103,8 @@ public class EnemyMovement : MonoBehaviour
         agent.isStopped = true;
         state = EnemyState.STUNNED;
         stunnedStarted = Time.time;
+        stunParticles.gameObject.SetActive(true);
+        stunParticles.Play();
     }
 
     private void handleIdle()
@@ -122,6 +137,8 @@ public class EnemyMovement : MonoBehaviour
         if (Time.time - stunnedStarted > stunDuration)
         {
             state = EnemyState.IDLE;
+            stunParticles.Stop();
+            stunParticles.gameObject.SetActive(false);
         }
     }
 
@@ -131,6 +148,55 @@ public class EnemyMovement : MonoBehaviour
         if (canSeePlayer())
         {
             state = EnemyState.ATTACK;
+            return;
+        }
+
+
+        if (patrolPoints == null || patrolPoints.Count <= 1)
+        {
+            state = EnemyState.IDLE;
+            return;
+        }
+
+        if (currentPatrolTarget == null)
+        {
+            currentPatrolTarget = patrolPoints.First();
+        }
+
+        if (Vector3.Distance(transform.position, currentPatrolTarget.position) > 0.1f)
+        {
+            agent.SetDestination(currentPatrolTarget.position);
+            agent.isStopped = false;
+            goblinAnimator.SetWalking(true);
+        }
+        else
+        {
+            int patrolIndex = patrolPoints.IndexOf(currentPatrolTarget);
+
+            if (patrolPingPong)
+            {
+                if (patrolDirection == 1 && patrolIndex == patrolPoints.Count - 1)
+                {
+                    patrolDirection = -1;
+                }
+                else if (patrolDirection == -1 && patrolIndex == 0)
+                {
+                    patrolDirection = 1;
+                }
+
+                currentPatrolTarget = patrolPoints[patrolIndex + patrolDirection];
+            }
+            else
+            {
+                patrolIndex++;
+
+                if (patrolIndex == patrolPoints.Count)
+                {
+                    patrolIndex = 0;
+                }
+
+                currentPatrolTarget = patrolPoints[patrolIndex];
+            }
         }
     }
 

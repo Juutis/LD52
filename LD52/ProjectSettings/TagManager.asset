@@ -8,6 +8,7 @@ TagManager:
   - Pullable
   - Ground
   - Unlock
+  - Checkpoint
   layers:
   - Default
   - TransparentFX

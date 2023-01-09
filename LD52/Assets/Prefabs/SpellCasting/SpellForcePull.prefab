@@ -44,8 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc22fd1130ead5a48b2d6f1351c830dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spellColor: {r: 0.63052875, g: 0.426, b: 1, a: 1}
   spellType: 2
-  icon: {fileID: 21300000, guid: 254e21ba17eaba5468b99f2e3a1d481d, type: 3}
+  icon: {fileID: 21300000, guid: add89f957c7b2664f8a1c275036eba7f, type: 3}
   unlockMessage: Hold the F key to show pullable items, release it to pull!
   unlockTitle: Pull spell unlocked!
   cooldownLengthMs: 2
