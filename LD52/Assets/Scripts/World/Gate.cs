@@ -16,6 +16,7 @@ public class Gate : MonoBehaviour
     void Start()
     {
         anim = GetComponentInChildren<Animator>();
+        gateCollider.enabled = true;
     }
 
     // Update is called once per frame
