@@ -37,6 +37,8 @@ public class SpellForcePull : CastableSpell
         {
             Debug.Log($"Perform Force Pull");
             pullable.GetPullAction().Invoke();
+            spellTargetEntity = null;
+            spellTargetLocation = null;
         }
     }
 }
