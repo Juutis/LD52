@@ -40,5 +40,9 @@ public class SpellForcePull : CastableSpell
             spellTargetEntity = null;
             spellTargetLocation = null;
         }
+        else
+        {
+            IsOnCooldown = false;
+        }
     }
 }
