@@ -29,7 +29,5 @@ public class SpellSmokeBomb : CastableSpell
         bomb.position = spellTargetEntity.position + spellTargetEntity.forward * 0.5f;
         bomb.velocity = spellTargetLocation.position - spellTargetEntity.position;
         bomb.GetComponent<SmokeBomb>()?.SetTarget(spellTargetLocation.position);
-        // Vector3 bombDirection = forceMagnitude * (spellTargetLocation.position - spellTargetEntity.position + Vector3.up * 2.5f).normalized;
-        // bomb.AddForce(bombDirection, ForceMode.Impulse);
     }
 }

@@ -33,6 +33,9 @@ public class EnemyMovement : MonoBehaviour
     private Vector3 startingPosition;
     private Quaternion startingRotation;
 
+    private float stunnedStarted = -1;
+    private float stunDuration = 5f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -73,7 +76,19 @@ public class EnemyMovement : MonoBehaviour
             case EnemyState.SEARCH:
                 handleSearch();
                 break;
+            case EnemyState.STUNNED:
+                handleStunned();
+                break;
         }
+    }
+
+    public void SetStunned()
+    {
+        goblinAnimator.SetWalking(false);
+        isInAttackRange = false;
+        agent.isStopped = true;
+        state = EnemyState.STUNNED;
+        stunnedStarted = Time.time;
     }
 
     private void handleIdle()
@@ -98,6 +113,14 @@ public class EnemyMovement : MonoBehaviour
 
             var deltaAngle = Quaternion.Angle(transform.localRotation, startingRotation);
             transform.localRotation = Quaternion.RotateTowards(transform.localRotation, startingRotation, Mathf.Min(deltaAngle, config.TurnRate * Time.deltaTime));
+        }
+    }
+
+    private void handleStunned()
+    {
+        if (Time.time - stunnedStarted > stunDuration)
+        {
+            state = EnemyState.IDLE;
         }
     }
 
@@ -298,5 +321,6 @@ enum EnemyState {
     PATROL,
     ATTACK,
     CHASE,
-    SEARCH
+    SEARCH,
+    STUNNED
 }

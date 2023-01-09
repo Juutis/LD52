@@ -8,6 +8,9 @@ public class SmokeBomb : MonoBehaviour
     [SerializeField]
     private float explosionRadius;
 
+    [SerializeField]
+    private ParticleSystem particles;
+
     private Vector3 target = Vector3.zero;
 
     // Start is called before the first frame update
@@ -27,10 +30,12 @@ public class SmokeBomb : MonoBehaviour
             {
                 if (hit.collider != null && hit.collider.gameObject.TryGetComponent(out EnemyMovement enemy))
                 {
-                    Debug.Log($"Hit {enemy.gameObject.name}");
-                    Destroy(enemy.gameObject);
+                    enemy.SetStunned();
                 }
             }
+
+            particles.transform.parent = null;
+            particles.Play();
             Destroy(gameObject);
         }
     }
