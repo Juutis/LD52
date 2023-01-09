@@ -390,6 +390,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 23800000, guid: 6f7479038c1ae7f408aad34747d98f21,
         type: 2}
+    - target: {fileID: 66246080539019753, guid: 81e05bb7ec79d854ab2393dce32d0ccf,
+        type: 3}
+      propertyPath: m_UseGeometry
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3199279945133384155, guid: 81e05bb7ec79d854ab2393dce32d0ccf,
         type: 3}
       propertyPath: m_RootOrder

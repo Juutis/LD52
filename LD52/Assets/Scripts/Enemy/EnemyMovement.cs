@@ -142,6 +142,8 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 
+    int patrolIndex = 0;
+
     private void handlePatrol()
     {
         isInAttackRange = false;
@@ -171,8 +173,6 @@ public class EnemyMovement : MonoBehaviour
         }
         else
         {
-            int patrolIndex = patrolPoints.IndexOf(currentPatrolTarget);
-
             if (patrolPingPong)
             {
                 if (patrolDirection == 1 && patrolIndex == patrolPoints.Count - 1)
@@ -184,7 +184,8 @@ public class EnemyMovement : MonoBehaviour
                     patrolDirection = 1;
                 }
 
-                currentPatrolTarget = patrolPoints[patrolIndex + patrolDirection];
+                patrolIndex += patrolDirection;
+                currentPatrolTarget = patrolPoints[patrolIndex];
             }
             else
             {
