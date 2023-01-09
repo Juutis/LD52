@@ -31,6 +31,13 @@ public class EntityHitReceiver : MonoBehaviour, ParentCollider
             CastableSpellManager.main.UnlockSpell(pickup.Spell);
             pickup.Kill();
         }
+        if (other.gameObject.tag == "Checkpoint")
+        {
+            Checkpoint checkpoint = other.gameObject.GetComponent<Checkpoint>();
+            checkpoint.Disable();
+            CheckpointManager.main.SetCheckpoint(checkpoint);
+            Debug.Log($"New checkpoint: {checkpoint.SpawnPoint}");
+        }
     }
     public void OnCollisionEnter(Collision other)
     {

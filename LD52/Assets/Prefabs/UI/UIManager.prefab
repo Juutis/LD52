@@ -3089,6 +3089,8 @@ MonoBehaviour:
     description: It seems the goblins were too hard on you.
     background: {fileID: 21300000, guid: 99273fe9ddb93aa47b7a820620f6e1f7, type: 3}
     buttons:
+    - title: Checkpoint
+      action: 3
     - title: Restart
       action: 0
     - title: Main Menu
