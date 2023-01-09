@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3680130148690005652}
-  - component: {fileID: 6691767289844821481}
   - component: {fileID: 2255316448783247520}
   m_Layer: 6
   m_Name: Rock
@@ -34,18 +33,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6691767289844821481
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1900747538850041799}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76c7a39786a2bf4419912be13c622514, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!136 &2255316448783247520
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -65,10 +52,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 2.1022024
-  m_Height: 6.738228
+  m_Radius: 1.4027662
+  m_Height: 4.947251
   m_Direction: 0
-  m_Center: {x: 0.024178505, y: 0.21831173, z: 0.260437}
+  m_Center: {x: -0.05632758, y: 0.21831179, z: 0.1855197}
 --- !u!1001 &7922753995960419541
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -81,6 +68,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 0358069f1fb655f48a2a9af96ac57dad,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 0358069f1fb655f48a2a9af96ac57dad,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 0358069f1fb655f48a2a9af96ac57dad,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0358069f1fb655f48a2a9af96ac57dad,
         type: 3}
@@ -131,6 +133,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 0358069f1fb655f48a2a9af96ac57dad,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 0358069f1fb655f48a2a9af96ac57dad,
         type: 3}
