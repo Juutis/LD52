@@ -47,11 +47,12 @@ MonoBehaviour:
   spellColor: {r: 0.362, g: 0.81923336, b: 1, a: 1}
   spellType: 1
   icon: {fileID: 21300000, guid: fa490f0559ce0c74eb55f789c57f8d7e, type: 3}
-  unlockMessage: Left click on a spot to teleport!
+  unlockMessage: Press "2" to select the spell and see where you can teleport. Left
+    click to cast the spell, right click to cancel.
   unlockTitle: Teleport spell unlocked!
   cooldownLengthMs: 2
   castRange: 8
-  hotKey: 323
+  hotKey: 50
   castType: 0
   spellTargeting: 1
   mouseIndicatorMaterial: {fileID: 2100000, guid: d61dfb25f5566b448a9284aa3485ad15,

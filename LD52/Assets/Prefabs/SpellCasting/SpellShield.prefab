@@ -50,7 +50,7 @@ MonoBehaviour:
   spellColor: {r: 0.019819975, g: 1, b: 0, a: 1}
   spellType: 0
   icon: {fileID: 21300000, guid: 9905548ca2d51004fb5d66db642ecaa1, type: 3}
-  unlockMessage: Use SPACE to shield yourself from arrows!
+  unlockMessage: Press "SPACE" to shield yourself from arrows!
   unlockTitle: Shield spell unlocked!
   cooldownLengthMs: 2
   castRange: 10

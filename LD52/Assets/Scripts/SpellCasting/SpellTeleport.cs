@@ -27,5 +27,9 @@ public class SpellTeleport : CastableSpell
             movement.Teleport(spellTargetLocation);
             SoundManager.main.PlaySound(GameSoundType.Teleport);
         }
+        else
+        {
+            SoundManager.main.PlaySound(GameSoundType.SpellFizzle);
+        }
     }
 }

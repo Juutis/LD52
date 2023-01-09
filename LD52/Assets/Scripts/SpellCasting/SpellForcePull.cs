@@ -39,6 +39,13 @@ public class SpellForcePull : CastableSpell
             pullable.GetPullAction().Invoke();
             spellTargetEntity = null;
             spellTargetLocation = null;
+            Debug.Log("playPull");
+            SoundManager.main.PlaySound(GameSoundType.SpellPull);
+        }
+        else
+        {
+            Debug.Log("playFizzle");
+            SoundManager.main.PlaySound(GameSoundType.SpellFizzle);
         }
     }
 }

@@ -47,11 +47,12 @@ MonoBehaviour:
   spellColor: {r: 0.4627451, g: 0.23921569, b: 0.16470589, a: 1}
   spellType: 3
   icon: {fileID: 21300000, guid: dc22b484da256954daaee6e6f2202f2c, type: 3}
-  unlockMessage: Use key E to throw it!
+  unlockMessage: Press "3" to select the spell and see where you can throw the bomb.
+    Left click to cast the spell, right click to cancel.
   unlockTitle: Smoke bomb unlocked!
   cooldownLengthMs: 2
   castRange: 10
-  hotKey: 101
+  hotKey: 51
   castType: 0
   spellTargeting: 0
   mouseIndicatorMaterial: {fileID: 2100000, guid: 963b3b3418800e34c8ed295c17051186,

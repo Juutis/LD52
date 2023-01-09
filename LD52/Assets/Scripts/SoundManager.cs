@@ -65,7 +65,10 @@ public enum GameSoundType
     ArrowHitShield,
     ArrowHitZarguuf,
     PullCart,
-    PullBerry
+    PullBerry,
+    SpellFizzle,
+    SpellPull,
+    SpellOnCooldown
 }
 
 [System.Serializable]

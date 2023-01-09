@@ -12,6 +12,8 @@ public class CastableSpellManager : MonoBehaviour
     private List<CastableSpell> usableSpells = new List<CastableSpell>();
 
     public static CastableSpellManager main;
+    private List<CastableSpell> spellsThatNeedPreparation = new List<CastableSpell>();
+    private List<CastableSpell> spellsThatDont = new List<CastableSpell>();
 
     private void Awake()
     {
@@ -41,6 +43,8 @@ public class CastableSpellManager : MonoBehaviour
         }
         MakeSpellUsable(spell);
         UIManager.main.ShowSpellUnlock(spell);
+        spellsThatNeedPreparation = usableSpells.Where(spell => spell.NeedsPreparation).ToList();
+        spellsThatDont = usableSpells.Where(spell => !spell.NeedsPreparation).ToList();
     }
 
     public IEnumerable<CastableSpell> GetPreparedSpells()
@@ -61,15 +65,71 @@ public class CastableSpellManager : MonoBehaviour
         UISpellBar.main.DrawSpell(spell);
     }
 
+    private CastableSpell DetermineCurrentSpell()
+    {
+        CastableSpell currentSpell = null;
+        foreach (CastableSpell spell in spellsThatNeedPreparation)
+        {
+            if (spell.IsPrepared)
+            {
+                currentSpell = spell;
+            }
+        }
+        foreach (CastableSpell spell in spellsThatNeedPreparation)
+        {
+            if (Input.GetKeyDown(spell.HotKey))
+            {
+                if (spell.IsPrepared)
+                {
+                    if (spell == currentSpell)
+                    {
+                        currentSpell = null;
+                    }
+                    spell.Unprepare();
+                }
+                else
+                {
+                    currentSpell = spell;
+                }
+            }
+        }
+        if (currentSpell != null)
+        {
+            spellsThatNeedPreparation.ForEach(spell =>
+            {
+                if (spell != currentSpell)
+                {
+                    spell.Unprepare();
+                }
+            });
+            if (!currentSpell.IsPrepared)
+            {
+                currentSpell.Prepare();
+            }
+        }
+        return currentSpell;
+    }
+
     private void CastSpells()
     {
-        foreach (CastableSpell spell in usableSpells)
+        CastableSpell preparedSpell = DetermineCurrentSpell();
+        if (preparedSpell != null && Input.GetMouseButtonDown(0))
         {
-            if (Input.GetKeyDown(spell.HotKey) || Input.GetKey(spell.HotKey))
+            preparedSpell.Cast();
+        }
+        if (Input.GetMouseButtonDown(1))
+        {
+            foreach (CastableSpell spell in usableSpells)
             {
-                spell.Cast(true);
+                if (spell.IsPrepared)
+                {
+                    spell.Unprepare();
+                }
             }
-            else if (Input.GetKeyUp(spell.HotKey))
+        }
+        foreach (CastableSpell spell in spellsThatDont)
+        {
+            if (Input.GetKeyDown(spell.HotKey))
             {
                 spell.Cast();
             }

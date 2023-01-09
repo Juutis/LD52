@@ -49,6 +49,7 @@ public class CastableSpell : MonoBehaviour
     public bool IsOnCooldown { get; private set; } = false;
     public float CooldownLeft { get { return cooldownLengthMs - cooldownTimer; } }
 
+    public bool NeedsPreparation { get { return castType == SpellCastType.NeedsPreparation; } }
 
     public void Initialize()
     {
@@ -59,9 +60,14 @@ public class CastableSpell : MonoBehaviour
         transform.localPosition = Vector3.zero;
     }
 
-    public SpellCastResult Cast(bool keyDown = false)
+
+    public void Unprepare()
     {
-        bool needsPreparation = castType == SpellCastType.NeedsPreparation;
+        IsPrepared = false;
+    }
+
+    public SpellCastResult Prepare()
+    {
         if (IsOnCooldown)
         {
             //Debug.Log($"[CastableSpell]: Spell '{spellType}' is on cooldown! ({CooldownLeft}ms left)");
@@ -72,14 +78,30 @@ public class CastableSpell : MonoBehaviour
             //Debug.Log($"[CastableSpell]: Spell '{spellType}' is already being cast!");
             return SpellCastResult.IsBeingCast;
         }
-        if (needsPreparation && keyDown)
+        if (!NeedsPreparation)
         {
-            IsPrepared = true;
-            return SpellCastResult.Prepared;
+            return SpellCastResult.IsNotPrepared;
         }
-        if (needsPreparation && !IsPrepared)
+        IsPrepared = true;
+        return SpellCastResult.Prepared;
+    }
+
+    public SpellCastResult Cast()
+    {
+        if (IsOnCooldown)
         {
-            Debug.LogError($"[CastableSpell]: Bug? '{spellType}' is not prepared? (keyup before keydown)");
+            //Debug.Log($"[CastableSpell]: Spell '{spellType}' is on cooldown! ({CooldownLeft}ms left)");
+            SoundManager.main.PlaySound(GameSoundType.SpellOnCooldown);
+            return SpellCastResult.OnCooldown;
+        }
+        if (IsBeingCast)
+        {
+            //Debug.Log($"[CastableSpell]: Spell '{spellType}' is already being cast!");
+            return SpellCastResult.IsBeingCast;
+        }
+        if (NeedsPreparation && !IsPrepared)
+        {
+            Debug.Log($"[CastableSpell]: '{spellType}' is not prepared.");
             return SpellCastResult.IsNotPrepared;
         }
         BeforeSpellEffect();
@@ -90,13 +112,11 @@ public class CastableSpell : MonoBehaviour
 
     private void BeforeSpellEffect()
     {
-        IsPrepared = false;
         IsBeingCast = true;
         IsOnCooldown = true;
     }
     private void AfterSpellEffect()
     {
-        IsPrepared = false;
         IsBeingCast = false;
     }
 

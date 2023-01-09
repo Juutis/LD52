@@ -33,9 +33,14 @@ public class UISpell : MonoBehaviour
     [SerializeField, ReadOnly]
     private bool IsPrepared;
 
+    [SerializeField]
+    private Color preparedColor;
+    private Color originalColor;
+
     void Start()
     {
         animator = GetComponent<Animator>();
+        originalColor = txtHotkey.color;
     }
 
     public void Initialize(CastableSpell castableSpell)
@@ -43,7 +48,24 @@ public class UISpell : MonoBehaviour
         spell = castableSpell;
         imgIcon.sprite = spell.Icon;
         imgOverlay.color = castableSpell.Color;
-        txtHotkey.text = spell.HotKey.ToString();
+        string hotkey = spell.HotKey.ToString();
+        if (hotkey == "Alpha1")
+        {
+            hotkey = "1";
+        }
+        if (hotkey == "Alpha2")
+        {
+            hotkey = "2";
+        }
+        if (hotkey == "Alpha3")
+        {
+            hotkey = "3";
+        }
+        if (hotkey == "Alpha4")
+        {
+            hotkey = "4";
+        }
+        txtHotkey.text = hotkey;
     }
 
     void Update()
@@ -83,10 +105,12 @@ public class UISpell : MonoBehaviour
         }
         if (IsPrepared && !preparedIndicator.activeSelf)
         {
+            txtHotkey.color = preparedColor;
             preparedIndicator.SetActive(true);
         }
         else if (!IsPrepared && preparedIndicator.activeSelf)
         {
+            txtHotkey.color = originalColor;
             preparedIndicator.SetActive(false);
         }
     }

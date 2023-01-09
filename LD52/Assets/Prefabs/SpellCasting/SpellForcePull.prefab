@@ -47,11 +47,12 @@ MonoBehaviour:
   spellColor: {r: 0.63052875, g: 0.426, b: 1, a: 1}
   spellType: 2
   icon: {fileID: 21300000, guid: add89f957c7b2664f8a1c275036eba7f, type: 3}
-  unlockMessage: Hold the F key to show pullable items, release it to pull!
+  unlockMessage: Press "1" to select the spell and view pullable objects. Left click
+    to cast the spell, right click to cancel.
   unlockTitle: Pull spell unlocked!
   cooldownLengthMs: 2
   castRange: 8
-  hotKey: 102
+  hotKey: 49
   castType: 0
   spellTargeting: 2
   mouseIndicatorMaterial: {fileID: 2100000, guid: f714d3fbcd5fb504381cfb02a5df91c7,
