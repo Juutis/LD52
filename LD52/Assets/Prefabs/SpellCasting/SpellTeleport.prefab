@@ -58,3 +58,9 @@ MonoBehaviour:
   mouseIndicatorMaterial: {fileID: 2100000, guid: d61dfb25f5566b448a9284aa3485ad15,
     type: 2}
   mouseIndicatorSize: 1
+  afterEffect: {fileID: 5212912586376655656, guid: 6c8de27c5af6ca8439046a152692627f,
+    type: 3}
+  entryEffect: {fileID: 5212912586376655656, guid: 8274a988dd884d14e956150f8787ac46,
+    type: 3}
+  followingEffect: {fileID: 5212912586376655656, guid: 71f426fffdc4b264eb0a1c71644301c0,
+    type: 3}
