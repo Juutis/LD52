@@ -58,7 +58,7 @@ public class EnemyMovement : MonoBehaviour
         agent.angularSpeed = config.TurnRate;
         agent.acceleration = 100.0f;
         goblinAnimator = GetComponentInChildren<GoblinAnimator>();
-        obstaclesMask = LayerMask.GetMask("Obstacles");
+        obstaclesMask = LayerMask.GetMask("Obstacles") | LayerMask.GetMask("NonBlinkPassableDynamicObstacle");
         startingState = startPatrol ? EnemyState.PATROL : state;
         state = startingState;
         startingPosition = transform.position;
