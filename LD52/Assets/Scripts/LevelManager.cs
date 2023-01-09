@@ -53,6 +53,7 @@ public class LevelManager : MonoBehaviour
         string sceneToLoad = scenes[levelIndex].scenePath;
         levelIndex += 1;
         SceneManager.LoadScene(sceneToLoad);
+        Time.timeScale = 1f;
     }
 
     public bool IsLastLevel()

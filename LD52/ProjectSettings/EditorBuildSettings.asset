@@ -12,9 +12,6 @@ EditorBuildSettings:
     path: Assets/Scenes/uiTest.unity
     guid: e9e889f639b586146a77bc2a9a592480
   - enabled: 1
-    path: Assets/Scenes/MatiaksenTestiskene.unity
-    guid: 4df3ac223428b1e439c1bec3af5dba2d
-  - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
+    path: Assets/Scenes/goblincity.unity
+    guid: 00a9034a9bb6f0741b81d4c0d8750930
   m_configObjects: {}
