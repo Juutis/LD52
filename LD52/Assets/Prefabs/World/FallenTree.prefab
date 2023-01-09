@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3680130148690005652}
-  - component: {fileID: 6691767289844821481}
   - component: {fileID: 5087449388590437661}
   m_Layer: 6
   m_Name: FallenTree
@@ -34,18 +33,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6691767289844821481
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1900747538850041799}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76c7a39786a2bf4419912be13c622514, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &5087449388590437661
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -65,8 +52,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 4.4773245, y: 3.9091344, z: 1.1299934}
-  m_Center: {x: -0.17874098, y: 1.0354545, z: -0.06499672}
+  m_Size: {x: 3.1103883, y: 3.9091344, z: 0.8269697}
+  m_Center: {x: -0.10147929, y: 1.0354545, z: -0.010654539}
 --- !u!1001 &8628137021150728121
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -83,17 +70,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 3b2deffb0ee175547a1f14b1847b72e7,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.6
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3b2deffb0ee175547a1f14b1847b72e7,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.6
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3b2deffb0ee175547a1f14b1847b72e7,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.6
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3b2deffb0ee175547a1f14b1847b72e7,
         type: 3}

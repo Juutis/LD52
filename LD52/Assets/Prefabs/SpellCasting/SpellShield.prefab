@@ -49,6 +49,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellType: 0
   icon: {fileID: 21300000, guid: 32e2028b70f95d14dbca862a259d2620, type: 3}
+  unlockMessage: Use SPACE to shield yourself from arrows!
+  unlockTitle: Shield spell unlocked!
   cooldownLengthMs: 2
   castRange: 10
   hotKey: 32

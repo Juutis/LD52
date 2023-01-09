@@ -44,9 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85edb23d5f1ba86488b73cd2366e8b8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unlockableSpells: []
-  startingSpells:
+  unlockableSpells:
   - {fileID: 5429402168126993029, guid: 183243635c5adff43814632c08502517, type: 3}
+  - {fileID: 7701530783763130747, guid: 988a3c8efb35018498dcc7495672aa52, type: 3}
   - {fileID: 7718958992447379093, guid: 2ca395f1a353bbc479d47141f7eded84, type: 3}
   - {fileID: 4292913310127307540, guid: 5e9806f93cccced4198f93eab8072f63, type: 3}
-  - {fileID: 7701530783763130747, guid: 988a3c8efb35018498dcc7495672aa52, type: 3}
+  startingSpells: []

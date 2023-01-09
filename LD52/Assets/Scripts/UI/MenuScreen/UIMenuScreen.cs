@@ -13,9 +13,15 @@ public class UIMenuScreen : MonoBehaviour
     [SerializeField]
     private Image difficultyImage;
     [SerializeField]
+    private Image spellIcon;
+    [SerializeField]
     private TextMeshProUGUI txtTitle;
     [SerializeField]
     private TextMeshProUGUI txtDescription;
+    [SerializeField]
+    private TextMeshProUGUI txtExtraTitle;
+    [SerializeField]
+    private TextMeshProUGUI txtExtraDescription;
     [SerializeField]
     private TextMeshProUGUI txtDifficulty;
     [SerializeField]
@@ -27,7 +33,12 @@ public class UIMenuScreen : MonoBehaviour
 
     private MenuScreen menu;
 
+    [SerializeField]
+    private GameObject difficultyDisplay;
+
     private bool initialized = false;
+
+    private bool respawn = false;
 
     [SerializeField]
     private Animator animator;
@@ -65,20 +76,45 @@ public class UIMenuScreen : MonoBehaviour
         {
             Close();
         }
+        if (action == MenuButtonAction.Respawn)
+        {
+            respawn = true;
+            Close();
+        }
     }
 
-    public void Open()
+    public void Open(string title = "", string description = "", Sprite icon = null, bool showDifficulty = true)
     {
+        txtExtraTitle.text = title;
+        txtExtraDescription.text = description;
+        if (icon != null)
+        {
+            spellIcon.sprite = icon;
+            spellIcon.enabled = true;
+        }
         GameManager.main.PauseGame();
         animator.Play("uiMenuScreenOpen");
         txtDifficulty.text = $"Difficulty: {GameManager.main.Difficulty.Type}";
         txtTimer.text = GameManager.main.GameTimer.GetString();
         difficultyImage.color = GameManager.main.Difficulty.Color;
+
+        if (!showDifficulty)
+        {
+            difficultyDisplay.SetActive(false);
+        }
     }
     public void CloseFinished()
     {
         UIManager.main.MenuWasClosed();
-        GameManager.main.ResumeGame();
+        if (respawn)
+        {
+            respawn = false;
+            GameManager.main.RespawnAtCheckpoint();
+        }
+        else
+        {
+            GameManager.main.ResumeGame();
+        }
     }
     private void Close()
     {
@@ -90,7 +126,8 @@ public enum MenuButtonAction
 {
     Restart,
     MainMenu,
-    Continue
+    Continue,
+    Respawn
 }
 
 [System.Serializable]

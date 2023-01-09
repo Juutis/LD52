@@ -68,6 +68,18 @@ public class GameManager : MonoBehaviour
     {
         Unpause();
     }
+
+    public void RespawnAtCheckpoint()
+    {
+        PlayerMovement.main.transform.position = new Vector3(
+            CheckpointManager.main.MostRecentCheckpoint.SpawnPoint.x,
+            PlayerMovement.main.transform.position.y,
+            CheckpointManager.main.MostRecentCheckpoint.SpawnPoint.z
+        );
+        EntityHealth.player.Initialize();
+        Unpause();
+    }
+
     public void OpenMainMenu()
     {
         Unpause();
