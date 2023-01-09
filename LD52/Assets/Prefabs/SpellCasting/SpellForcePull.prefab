@@ -50,7 +50,7 @@ MonoBehaviour:
   unlockMessage: Hold the F key to show pullable items, release it to pull!
   unlockTitle: Pull spell unlocked!
   cooldownLengthMs: 2
-  castRange: 30
+  castRange: 8
   hotKey: 102
   castType: 0
   spellTargeting: 2

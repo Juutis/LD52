@@ -50,7 +50,7 @@ MonoBehaviour:
   unlockMessage: Left click on a spot to teleport!
   unlockTitle: Teleport spell unlocked!
   cooldownLengthMs: 2
-  castRange: 15
+  castRange: 8
   hotKey: 323
   castType: 0
   spellTargeting: 1
