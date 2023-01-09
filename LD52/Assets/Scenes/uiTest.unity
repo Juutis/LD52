@@ -1000,6 +1000,11 @@ PrefabInstance:
       propertyPath: m_Center.y
       value: -0.24
       objectReference: {fileID: 0}
+    - target: {fileID: 5677675272790320431, guid: 44f6edfb824104b4492b4b04dc6dab05,
+        type: 3}
+      propertyPath: maxBerries
+      value: 66
+      objectReference: {fileID: 0}
     - target: {fileID: 5728019048103320645, guid: 44f6edfb824104b4492b4b04dc6dab05,
         type: 3}
       propertyPath: m_AABB.m_Center.x
