@@ -43,8 +43,6 @@ public class CastableSpellManager : MonoBehaviour
         }
         MakeSpellUsable(spell);
         UIManager.main.ShowSpellUnlock(spell);
-        spellsThatNeedPreparation = usableSpells.Where(spell => spell.NeedsPreparation).ToList();
-        spellsThatDont = usableSpells.Where(spell => !spell.NeedsPreparation).ToList();
     }
 
     public IEnumerable<CastableSpell> GetPreparedSpells()
@@ -58,6 +56,8 @@ public class CastableSpellManager : MonoBehaviour
         usableSpells.Add(spell);
         spell.Initialize();
         DrawSpell(spell);
+        spellsThatNeedPreparation = usableSpells.Where(spell => spell.NeedsPreparation).ToList();
+        spellsThatDont = usableSpells.Where(spell => !spell.NeedsPreparation).ToList();
     }
 
     private void DrawSpell(CastableSpell spell)
@@ -110,22 +110,28 @@ public class CastableSpellManager : MonoBehaviour
         return currentSpell;
     }
 
+    private void UnprepareSpells()
+    {
+        foreach (CastableSpell spell in spellsThatNeedPreparation)
+        {
+            if (spell.IsPrepared)
+            {
+                spell.Unprepare();
+            }
+        }
+    }
+
     private void CastSpells()
     {
         CastableSpell preparedSpell = DetermineCurrentSpell();
         if (preparedSpell != null && Input.GetMouseButtonDown(0))
         {
             preparedSpell.Cast();
+            preparedSpell.Unprepare();
         }
         if (Input.GetMouseButtonDown(1))
         {
-            foreach (CastableSpell spell in usableSpells)
-            {
-                if (spell.IsPrepared)
-                {
-                    spell.Unprepare();
-                }
-            }
+            UnprepareSpells();
         }
         foreach (CastableSpell spell in spellsThatDont)
         {

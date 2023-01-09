@@ -623,25 +623,25 @@ PrefabInstance:
         type: 3}
       propertyPath: startingSpells.Array.data[0]
       value: 
-      objectReference: {fileID: 5429402168126993029, guid: 183243635c5adff43814632c08502517,
+      objectReference: {fileID: 4292913310127307540, guid: 5e9806f93cccced4198f93eab8072f63,
         type: 3}
     - target: {fileID: 1788919318216503610, guid: 44f6edfb824104b4492b4b04dc6dab05,
         type: 3}
       propertyPath: startingSpells.Array.data[1]
       value: 
-      objectReference: {fileID: 7701530783763130747, guid: 988a3c8efb35018498dcc7495672aa52,
+      objectReference: {fileID: 7718958992447379093, guid: 2ca395f1a353bbc479d47141f7eded84,
         type: 3}
     - target: {fileID: 1788919318216503610, guid: 44f6edfb824104b4492b4b04dc6dab05,
         type: 3}
       propertyPath: startingSpells.Array.data[2]
       value: 
-      objectReference: {fileID: 7718958992447379093, guid: 2ca395f1a353bbc479d47141f7eded84,
+      objectReference: {fileID: 7701530783763130747, guid: 988a3c8efb35018498dcc7495672aa52,
         type: 3}
     - target: {fileID: 1788919318216503610, guid: 44f6edfb824104b4492b4b04dc6dab05,
         type: 3}
       propertyPath: startingSpells.Array.data[3]
       value: 
-      objectReference: {fileID: 4292913310127307540, guid: 5e9806f93cccced4198f93eab8072f63,
+      objectReference: {fileID: 5429402168126993029, guid: 183243635c5adff43814632c08502517,
         type: 3}
     - target: {fileID: 1807248802158507293, guid: 44f6edfb824104b4492b4b04dc6dab05,
         type: 3}
