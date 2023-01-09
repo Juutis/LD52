@@ -455,6 +455,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: GoblinCity
       objectReference: {fileID: 0}
+    - target: {fileID: 8651493237034259368, guid: 81e05bb7ec79d854ab2393dce32d0ccf,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 41
+      objectReference: {fileID: 0}
+    - target: {fileID: 8651493237034259368, guid: 81e05bb7ec79d854ab2393dce32d0ccf,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8651493237034259368, guid: 81e05bb7ec79d854ab2393dce32d0ccf,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.61
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
