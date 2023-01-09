@@ -3258,6 +3258,13 @@ MonoBehaviour:
       action: 0
     - title: Main Menu
       action: 1
+  nextLevelScreen:
+    title: Big Berry!
+    description: I wonder if there are more...
+    background: {fileID: 21300000, guid: 6d22c7027ed9ece41a9116e77acd2eec, type: 3}
+    buttons:
+    - title: Next Level
+      action: 4
   spellUnlockScreen:
     title: New spell
     description: Magic!

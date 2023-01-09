@@ -99,6 +99,17 @@ public class GameManager : MonoBehaviour
     {
         UIManager.main.OpenTheEndMenu();
     }
+    public void NextLevelScreen()
+    {
+        if (LevelManager.main.IsLastLevel())
+        {
+            TheEnd();
+        }
+        else
+        {
+            UIManager.main.OpenNextLevelMenu();
+        }
 
+    }
 
 }

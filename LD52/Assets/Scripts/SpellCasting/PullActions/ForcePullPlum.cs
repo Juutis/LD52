@@ -34,7 +34,7 @@ public class ForcePullPlum : MonoBehaviour
 
     public void PullAction()
     {
-        if (!pulling) 
+        if (!pulling)
         {
             if (curStep < steps)
             {
@@ -46,7 +46,7 @@ public class ForcePullPlum : MonoBehaviour
             else
             {
                 Debug.Log("WIN!");
-                GameManager.main.TheEnd();
+                GameManager.main.NextLevelScreen();
             }
         }
     }

@@ -81,6 +81,10 @@ public class UIMenuScreen : MonoBehaviour
             respawn = true;
             Close();
         }
+        if (action == MenuButtonAction.NextLevel)
+        {
+            LevelManager.main.NextLevel();
+        }
     }
 
     public void Open(string title = "", string description = "", Sprite icon = null, bool showDifficulty = true)
@@ -127,7 +131,8 @@ public enum MenuButtonAction
     Restart,
     MainMenu,
     Continue,
-    Respawn
+    Respawn,
+    NextLevel
 }
 
 [System.Serializable]
