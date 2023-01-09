@@ -138,6 +138,7 @@ public class EnemyMovement : MonoBehaviour
         if (Time.time - stunnedStarted > stunDuration)
         {
             state = EnemyState.SEARCH;
+            searchTimer = Time.time;
             stunParticles.Stop();
             stunParticles.gameObject.SetActive(false);
             goblinAnimator.Stunned(false);
