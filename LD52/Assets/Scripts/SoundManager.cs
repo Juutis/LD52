@@ -63,7 +63,9 @@ public enum GameSoundType
     GobboAnnoyed,
     GobboShoot,
     ArrowHitShield,
-    ArrowHitZarguuf
+    ArrowHitZarguuf,
+    PullCart,
+    PullBerry
 }
 
 [System.Serializable]
