@@ -50,7 +50,7 @@ MonoBehaviour:
   unlockMessage: Press "2" to select the spell and see where you can teleport. Left
     click to cast the spell, right click to cancel.
   unlockTitle: Teleport spell unlocked!
-  cooldownLengthMs: 2
+  cooldownLengthMs: 3
   castRange: 8
   hotKey: 50
   castType: 0

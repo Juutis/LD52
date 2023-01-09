@@ -46,7 +46,7 @@ public class EnemyMovement : MonoBehaviour
     private Quaternion startingRotation;
 
     private float stunnedStarted = -1;
-    private float stunDuration = 5f;
+    private float stunDuration = 7.5f;
 
     // Start is called before the first frame update
     void Start()
@@ -136,7 +136,7 @@ public class EnemyMovement : MonoBehaviour
     {
         if (Time.time - stunnedStarted > stunDuration)
         {
-            state = EnemyState.IDLE;
+            state = EnemyState.SEARCH;
             stunParticles.Stop();
             stunParticles.gameObject.SetActive(false);
         }

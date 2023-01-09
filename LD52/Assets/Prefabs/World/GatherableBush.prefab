@@ -113,7 +113,7 @@ MonoBehaviour:
   - {fileID: 4404628607320653859}
   - {fileID: 4404628607325782299}
   - {fileID: 4404628607743611581}
-  pullBerryCount: 2
+  pullBerryCount: 6
   pullSpeed: 3
 --- !u!208 &3459194083763898174
 NavMeshObstacle:

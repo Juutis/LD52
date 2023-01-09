@@ -50,7 +50,7 @@ MonoBehaviour:
   unlockMessage: Press "3" to select the spell and see where you can throw the bomb.
     Left click to cast the spell, right click to cancel.
   unlockTitle: Smoke bomb unlocked!
-  cooldownLengthMs: 2
+  cooldownLengthMs: 15
   castRange: 10
   hotKey: 51
   castType: 0

@@ -16,9 +16,13 @@ public class Projectile : MonoBehaviour, ParentCollider
     [SerializeField]
     private int damage = 2;
     public int Damage { get { return damage; } }
+    private float timeStarted;
+    private float lifetime = 5f;
+
     public void Initialize(ChildCollider targetChild)
     {
         targetChild.Initialize(this);
+        timeStarted = Time.time;
     }
     public void Launch(Vector3 targetPosition)
     {
@@ -30,6 +34,14 @@ public class Projectile : MonoBehaviour, ParentCollider
     public void Kill()
     {
         Destroy(gameObject);
+    }
+
+    void Update()
+    {
+        if (Time.time - timeStarted > lifetime)
+        {
+            Destroy(gameObject);
+        }
     }
 
     public void OnTriggerEnter(Collider other)

@@ -46,7 +46,7 @@ public class CastableSpell : MonoBehaviour
 
     public bool IsPrepared { get; private set; } = false;
     public bool IsBeingCast { get; private set; } = false;
-    public bool IsOnCooldown { get; private set; } = false;
+    public bool IsOnCooldown { get; protected set; } = false;
     public float CooldownLeft { get { return cooldownLengthMs - cooldownTimer; } }
 
     public bool NeedsPreparation { get { return castType == SpellCastType.NeedsPreparation; } }

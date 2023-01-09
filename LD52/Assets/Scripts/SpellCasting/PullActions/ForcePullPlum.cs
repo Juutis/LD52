@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class ForcePullPlum : MonoBehaviour
 {
-    private static float unscaledAnimationDuration = 2.042f;
-    private static float steps = 5;
-    private static float durationPerStep = 1.0f;
-    private static float animationScale = unscaledAnimationDuration / (steps * durationPerStep);
+    private float unscaledAnimationDuration = 2.042f;
+
+    [SerializeField]
+    private float steps = 3;
+    private float durationPerStep = 1.0f;
+    private float animationScale;
 
     private bool pulling = false;
 
@@ -19,6 +21,7 @@ public class ForcePullPlum : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        animationScale = unscaledAnimationDuration / (steps * durationPerStep);
         anim = GetComponentInChildren<Animator>();
         anim.speed = 0;
     }
