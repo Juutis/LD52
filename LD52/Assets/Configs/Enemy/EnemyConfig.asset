@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6aae46ea68fadb479f5aa5a1859025f, type: 3}
   m_Name: EnemyConfig
   m_EditorClassIdentifier: 
-  VisionRange: 16
+  VisionRange: 10
   ConeOfVision: 135
   HearingRange: 2.5
   AttackRange: 8
