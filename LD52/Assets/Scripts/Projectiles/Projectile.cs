@@ -17,7 +17,7 @@ public class Projectile : MonoBehaviour, ParentCollider
     private int damage = 2;
     public int Damage { get { return damage; } }
     private float timeStarted;
-    private float lifetime = 30f;
+    private float lifetime = 5f;
 
     public void Initialize(ChildCollider targetChild)
     {
